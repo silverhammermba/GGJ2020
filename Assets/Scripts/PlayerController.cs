@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     Vector3 jumpEndPosition;
     float dashStartTime;
     Gamepad gamepad;
+    GameObject currentlyInteractingObject;
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         canMove = true;
-        radius = 5;
+        radius = 1;
         gamepad = Gamepad.current;
         jumpTester.radius = playerCollider.radius;
         startedTestingJump = false;
@@ -58,8 +59,23 @@ public class PlayerController : MonoBehaviour
             if (!jumping && gamepad.buttonWest.wasPressedThisFrame && !interacting)
             {
                 canMove = false;
-                attemptInteract();
+                currentlyInteractingObject = attemptInteract();
                 interacting = false;
+            }
+            if (um.isToolTipEnabled())
+            {
+                if (gamepad.buttonNorth.wasPressedThisFrame)
+                {
+                    Debug.Log("Repair button was pressed");
+                    for (int a = 0; a < gameObject.GetComponent<Inventory>().inventory.Count; a++)
+                    {
+                        if (currentlyInteractingObject.GetComponent<Repairable>().repairObject(gameObject.GetComponent<Inventory>().inventory[a]))
+                        {
+                            gameObject.GetComponent<Inventory>().removeItem(a);
+                        }
+                    }
+                    um.populateTooltip(currentlyInteractingObject.GetComponent<Repairable>());
+                }
             }
             if (!um.isToolTipEnabled())
             {
@@ -159,10 +175,11 @@ public class PlayerController : MonoBehaviour
             jumpFailed = true;
         }
     }
-    public void attemptInteract()
+    public GameObject attemptInteract()
     {
         interacting = true;
         Collider2D[] hits = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+        GameObject g = new GameObject();
         foreach (Collider2D hit in hits)
         {
             Debug.Log(hit.gameObject.name);
@@ -170,9 +187,10 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Interacted with an interactable");
                 hit.gameObject.GetComponent<Interactable>().interact();
-
+                g = hit.gameObject;
             }
         }
+        return g;
     }
     private void OnTriggerStay2D(Collider2D other)
     {

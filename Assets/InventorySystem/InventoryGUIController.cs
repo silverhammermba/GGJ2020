@@ -16,47 +16,48 @@ public class InventoryGUIController : MonoBehaviour
     void Start()
     {
 
-        inv = player.GetComponent<Inventory>();
-        _id = ItemDatabase.Instance;
-        Item i = _id.items[3];  
-        Item k = _id.items[2];
-        i.stackSize = 5;
-        k.stackSize = 2;
-        inv.addItem(i);
-        inv.addItem(k);
-
+        //inv = player.GetComponent<Inventory>();
         //_id = ItemDatabase.Instance;
-        //inv = new Inventory();
-        //Debug.Log(_id);
-        //for (int g = 0; g < 3; g++)
-        //{
-        //    inv.addItem(_id.items[g]);
-        //}
-        //Debug.Log(inv.inventory.Count);
+        //Item i = _id.items[3];  
+        //Item k = _id.items[2];
+        //i.stackSize = 5;
+        //k.stackSize = 2;
+        //inv.addItem(i);
+        //inv.addItem(k);
+
+        ////_id = ItemDatabase.Instance;
+        ////inv = new Inventory();
+        ////Debug.Log(_id);
+        ////for (int g = 0; g < 3; g++)
+        ////{
+        ////    inv.addItem(_id.items[g]);
+        ////}
+        ////Debug.Log(inv.inventory.Count);
+        ////inv.removeItem(1);
+        ////for (int z = 0; z < inv.inventory.Count; z++)
+        ////{
+        ////    Debug.Log(inv.inventory[z]);
+        ////}
+        ////TODO: Take this out and implement when pc is in
+        ////for (int j = 0; j < i.inventory.Count; j++)
+        //initializeEmptySlots();
+        //refresh();
         //inv.removeItem(1);
-        //for (int z = 0; z < inv.inventory.Count; z++)
-        //{
-        //    Debug.Log(inv.inventory[z]);
-        //}
-        //TODO: Take this out and implement when pc is in
-        //for (int j = 0; j < i.inventory.Count; j++)
+        //refresh();
+        //inv.addItem(i);
+        //inv.removeItem(3);
+        //refresh();
         initializeEmptySlots();
-        refresh();
-        inv.removeItem(1);
-        refresh();
-        inv.addItem(i);
-        inv.removeItem(3);
-        refresh();
 
     }
-    void initializeEmptySlots()
+    public void initializeEmptySlots()
     {
         for (int x = 0; x < player.GetComponent<Inventory>().maxSize; x++)
         {
             Instantiate(inventorySlot, this.transform);
         }
     }
-    void refresh()
+    public void refresh()
     {
         for (int g = 0; g < player.GetComponent<Inventory>().inventory.Count; g++)
         {

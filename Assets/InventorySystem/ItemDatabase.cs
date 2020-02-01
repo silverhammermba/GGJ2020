@@ -6,6 +6,18 @@ public class ItemDatabase : MonoBehaviour
     //TODO: private
     public static ItemDatabase instance;
     public List<Item> items;
+    public Item getItemFromId(int id)
+    {
+        Item ig = new Item();
+        foreach (Item i in items)
+        {
+            if (i.id.Equals(id.ToString()))
+            {
+                ig = i;
+            }
+        }
+        return ig;
+    }
     public static ItemDatabase Instance
     {
         get

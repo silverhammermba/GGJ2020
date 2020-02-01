@@ -30,15 +30,23 @@ public class UIManager : MonoBehaviour
     public void populateTooltip(Repairable r)
     {
         int i = 0;
+        r.recipe.required_items.Sort();
         foreach (int id in r.recipe.required_items)
         {
             rtp.gameObject.transform.GetChild(i).gameObject.SetActive(true);
             rtp.gameObject.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = slotEmpty;
-            if (r.currentState[i] == r.recipe.required_items[i])
+            if (r.currentState.Count > 0)
             {
-                rtp.gameObject.transform.GetChild(i).gameObject.SetActive(true);
-                rtp.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = slotFilled;
+                if (r.currentState[i] == r.recipe.required_items[i])
+                {
+                    Debug.Log("Current State has an object!");
+                    rtp.gameObject.transform.GetChild(i).gameObject.SetActive(true);
+                    rtp.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = slotFilled;
+                }
             }
+        }
+        for(int f = 0; f < r.currentState.Count; f++){
+            Debug.Log(r.currentState[f]);
         }
     }
 }

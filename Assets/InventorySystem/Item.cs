@@ -10,7 +10,10 @@ public class Item
     public bool isStackable;
     public int stackSize;
     public Sprite icon;
+    public Item()
+    {
 
+    }
    public Item(Item i)
     {
         this.id = i.id;
