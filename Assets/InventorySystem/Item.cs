@@ -8,6 +8,7 @@ public class Item
     public string name;
     public string Description;
     public bool isStackable;
+    public int stackSize;
     public Sprite icon;
 
    public Item(Item i)

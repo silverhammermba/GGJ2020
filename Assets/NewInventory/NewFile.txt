@@ -15,16 +15,6 @@ public class InventoryGUIController : MonoBehaviour
     private ItemDatabase _id;
     void Start()
     {
-
-        inv = player.GetComponent<Inventory>();
-        _id = ItemDatabase.Instance;
-        Item i = _id.items[3];  
-        Item k = _id.items[2];
-        i.stackSize = 5;
-        k.stackSize = 2;
-        inv.addItem(i);
-        inv.addItem(k);
-
         //_id = ItemDatabase.Instance;
         //inv = new Inventory();
         //Debug.Log(_id);
@@ -40,14 +30,13 @@ public class InventoryGUIController : MonoBehaviour
         //}
         //TODO: Take this out and implement when pc is in
         //for (int j = 0; j < i.inventory.Count; j++)
-        initializeEmptySlots();
-        refresh();
-        inv.removeItem(1);
-        refresh();
-        inv.addItem(i);
-        inv.removeItem(3);
-        refresh();
-
+        for (int j = 0; j < inv.maxSize; j++)
+        {
+            inventorySlot.GetComponent<InventorySlotController>().item = inv.inventory[j];
+            inventorySlot.gameObject.GetComponentInChildren<Image>().sprite = inv.inventory[j].icon;
+            inventorySlot.gameObject.GetComponentInChildren<Text>().text = inventorySlot.GetComponent<InventorySlotController>().stackSize.ToString();
+            Instantiate(inventorySlot, this.transform);
+        }
     }
     void initializeEmptySlots()
     {
@@ -63,13 +52,7 @@ public class InventoryGUIController : MonoBehaviour
             Inventory tmpInv = player.GetComponent<Inventory>();
             this.transform.GetChild(g).gameObject.GetComponent<InventorySlotController>().item = tmpInv.inventory[g];
             this.transform.GetChild(g).gameObject.GetComponentInChildren<Image>().sprite = tmpInv.inventory[g].icon;
-            this.transform.GetChild(g).gameObject.GetComponentInChildren<Text>().text = tmpInv.inventory[g].stackSize.ToString();
-        }
-        for (int z = player.GetComponent<Inventory>().inventory.Count; z < player.GetComponent<Inventory>().maxSize; z++)
-        {
-            this.transform.GetChild(z).gameObject.GetComponent<InventorySlotController>().item = null;
-            this.transform.GetChild(z).gameObject.GetComponentInChildren<Image>().sprite = null;
-            this.transform.GetChild(z).gameObject.GetComponentInChildren<Text>().text = null;
+            this.transform.GetChild(g).gameObject.GetComponentInChildren<Text>().text = tmpInv.inventory[g].
         }
     }
     void populateBar()

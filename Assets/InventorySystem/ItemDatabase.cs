@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
 public class ItemDatabase : MonoBehaviour
 {
-    public static ItemDatabase _instance;
+    //TODO: private
+    public static ItemDatabase instance;
     public List<Item> items;
-    // Start is called before the first frame update
-    public ItemDatabase getInstance()
+    public static ItemDatabase Instance
     {
-        return _instance;
-    }
-    public List<Item> getItems()
-    {
-        return _instance.items;
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<ItemDatabase>();
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(ItemDatabase).Name;
+                    instance = obj.AddComponent<ItemDatabase>();
+                }
+            }
+            return instance;
+        }
     }
 }
