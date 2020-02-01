@@ -1,0 +1,685 @@
+fileFormatVersion: 2
+guid: bcac10fb32208ba42a102a02c11e85e7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8185694064689951066
+    second: worldAssetsAtlased_0
+  - first:
+      213: 7055966685903248269
+    second: worldAssetsAtlased_1
+  - first:
+      213: 7181186247709202766
+    second: worldAssetsAtlased_2
+  - first:
+      213: -5121181983124976712
+    second: worldAssetsAtlased_3
+  - first:
+      213: 189189644261705528
+    second: worldAssetsAtlased_4
+  - first:
+      213: -5795151007993877135
+    second: worldAssetsAtlased_5
+  - first:
+      213: -6229607302464038363
+    second: worldAssetsAtlased_6
+  - first:
+      213: -4360284858882838746
+    second: worldAssetsAtlased_7
+  - first:
+      213: 5212661571249058564
+    second: worldAssetsAtlased_8
+  - first:
+      213: 5853346562907884315
+    second: worldAssetsAtlased_9
+  - first:
+      213: -2878951357241615101
+    second: worldAssetsAtlased_10
+  - first:
+      213: 6470690430810225002
+    second: worldAssetsAtlased_11
+  - first:
+      213: -3947276357683852766
+    second: worldAssetsAtlased_12
+  - first:
+      213: 7854146442176296997
+    second: worldAssetsAtlased_13
+  - first:
+      213: 1398830131239641514
+    second: worldAssetsAtlased_14
+  - first:
+      213: -215398801178997233
+    second: worldAssetsAtlased_15
+  - first:
+      213: -1082014798762291955
+    second: worldAssetsAtlased_16
+  - first:
+      213: -1519667961533100902
+    second: worldAssetsAtlased_17
+  - first:
+      213: -5835502478012217964
+    second: worldAssetsAtlased_18
+  - first:
+      213: 4489990900427915676
+    second: worldAssetsAtlased_7
+  - first:
+      213: -5559170476167934284
+    second: worldAssetsAtlased_19
+  - first:
+      213: 7529766312771589944
+    second: worldAssetsAtlased_20
+  - first:
+      213: 1173113218188632714
+    second: worldAssetsAtlased_21
+  - first:
+      213: 750636629671888805
+    second: worldAssetsAtlased_22
+  - first:
+      213: -1209902874118624041
+    second: worldAssetsAtlased_23
+  - first:
+      213: -6203635174403295836
+    second: worldAssetsAtlased_18
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: worldAssetsAtlased_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 370
+        width: 309
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a513ed5d16d699170800000000000000
+      internalID: 8185694064689951066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_1
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 89
+        width: 119
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bd0441154dbe160800000000000000
+      internalID: 7055966685903248269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_2
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 156
+        width: 72
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4990a048d2b8a360800000000000000
+      internalID: 7181186247709202766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 156
+        width: 72
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb84b99e18ede8b0800000000000000
+      internalID: -5121181983124976712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_4
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 155
+        width: 72
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 837c665aaf220a200800000000000000
+      internalID: 189189644261705528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 156
+        width: 8
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17d27ccbcdc739fa0800000000000000
+      internalID: -5795151007993877135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_6
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 188
+        width: 22
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5266169, y: 0.55307615}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a937e0a2dfb89a0800000000000000
+      internalID: -6229607302464038363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 92
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1bc065cfa34b3150800000000000000
+      internalID: 5853346562907884315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_10
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 92
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d1cf17ef8eb08d0800000000000000
+      internalID: -2878951357241615101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_11
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 92
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6976f3e9a28cc950800000000000000
+      internalID: 6470690430810225002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_12
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 92
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ac4f5f0157839c0800000000000000
+      internalID: -3947276357683852766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_13
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 92
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528f0db73988ffc60800000000000000
+      internalID: 7854146442176296997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_14
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 92
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1e6a1d794a96310800000000000000
+      internalID: 1398830131239641514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_15
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 92
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0e4eaa7eefb20df0800000000000000
+      internalID: -215398801178997233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_16
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 137
+        width: 20
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0dce06f549ebf0f0800000000000000
+      internalID: -1082014798762291955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_17
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 12
+        width: 79
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c07406a0e09eae0800000000000000
+      internalID: -1519667961533100902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_7
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 156
+        width: 79
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c910eb85fe6af4e30800000000000000
+      internalID: 4489990900427915676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_8
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 12
+        width: 74
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40331a8c418175840800000000000000
+      internalID: 5212661571249058564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_19
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 12
+        width: 74
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4becb2ad7ebd9d2b0800000000000000
+      internalID: -5559170476167934284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_20
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 12
+        width: 74
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 837147a219a1f7860800000000000000
+      internalID: 7529766312771589944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_21
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 12
+        width: 74
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82e27ba14cb74010800000000000000
+      internalID: 1173113218188632714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_22
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 12
+        width: 74
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a74df2a90cca6a00800000000000000
+      internalID: 750636629671888805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_23
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 12
+        width: 74
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc6f6f0fbf853fe0800000000000000
+      internalID: -1209902874118624041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worldAssetsAtlased_18
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 156
+        width: 79
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5b2995da248e9a0800000000000000
+      internalID: -6203635174403295836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
