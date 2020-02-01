@@ -188,7 +188,6 @@ public class PlayerController : MonoBehaviour
     {
         interacting = true;
         Collider2D[] hits = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
-        GameObject g = new GameObject();
         foreach (Collider2D hit in hits)
         {
             Debug.Log(hit.gameObject.name);
@@ -196,10 +195,11 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Interacted with an interactable");
                 hit.gameObject.GetComponent<Interactable>().interact();
-                g = hit.gameObject;
+                return hit.gameObject;
             }
         }
-        return g;
+        return this.gameObject;
+        
     }
     private void OnTriggerStay2D(Collider2D other)
     {
