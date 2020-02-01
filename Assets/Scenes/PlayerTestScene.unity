@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 852903166}
   - component: {fileID: 852903170}
   - component: {fileID: 852903169}
+  - component: {fileID: 852903171}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -366,6 +367,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3353ceececc9faa8dadebfa5acc669fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 40
+  jumpDistance: 2.5
+  jumpSpeed: 0
+  jumpHeight: 0
 --- !u!212 &852903167
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -424,7 +429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852903165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.74, y: -0.136, z: 0}
+  m_LocalPosition: {x: 0.835, y: 0.119, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -459,7 +464,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 9e4291e0f061408c6b2ba69b3677c58b, type: 2}
@@ -467,3 +472,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &852903171
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852903165}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
