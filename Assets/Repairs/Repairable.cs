@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Repairable : MonoBehaviour
+public class Repairable : Interactable
 {
     public List<int> currentState;
     public Recipe recipe;
@@ -18,6 +18,11 @@ public class Repairable : MonoBehaviour
         {
             return false;
         }
+    }
+    public override void interact()
+    {
+        //TODO: Get the inventory better
+        PlayerController player = (PlayerController)FindObjectOfType(typeof(PlayerController));
     }
     public List<int> getRequiredItems()
     {
