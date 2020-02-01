@@ -6,11 +6,14 @@ public class PlayerSpriteController : MonoBehaviour
 {
     PlayerController player;
     Animation jumpAnimation;
+    private Animator _anim;
+    public string jumpAnim, walkAnim, idleAnim, dashAnim;
 
     void Awake()
     {
         player = GetComponentInParent<PlayerController>();
         jumpAnimation = GetComponent<Animation>();
+        _anim = this.GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -24,16 +27,24 @@ public class PlayerSpriteController : MonoBehaviour
     {
         
     }
+    public void WalkAnimation() 
+    {
+        _anim.Play(walkAnim);
+    }
 
+    public void IdleAnimation() 
+    {
+        _anim.Play(idleAnim);
+    }
     public void JumpAnimation(float duration)
     {
-        jumpAnimation["Jumping"].speed = 1.0f / duration;
-        jumpAnimation.Play();
+        _anim.speed = 1.0f / duration;
+        _anim.Play(jumpAnim);
     }
 
     public void JumpDone()
     {
-        jumpAnimation.Stop();
-        jumpAnimation.Rewind();
+        //jumpAnimation.Stop();
+        //jumpAnimation.Rewind();
     }
 }
