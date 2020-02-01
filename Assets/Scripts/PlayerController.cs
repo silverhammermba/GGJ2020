@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float moveForce;
+    public bool canMove;
     public float jumpDistance;
     public float jumpDuration; // time in seconds to complete the jump
     public bool canJump;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        canMove = true;
         radius = 5;
         gamepad = Gamepad.current;
         jumpTester.radius = playerCollider.radius;
@@ -55,9 +57,13 @@ public class PlayerController : MonoBehaviour
         {
             if (!jumping && gamepad.buttonWest.wasPressedThisFrame && !interacting)
             {
+                canMove = false;
                 attemptInteract();
-
                 interacting = false;
+            }
+            if (!um.isToolTipEnabled())
+            {
+                canMove = true;
             }
         }
         if (jumping)
@@ -77,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!canMove) return;
         var gamepad = Gamepad.current;
         if (gamepad == null) return;
 
