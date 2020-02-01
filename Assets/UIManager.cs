@@ -61,7 +61,13 @@ public class UIManager : MonoBehaviour
         }
     public void populateTooltip(Repairable r)
     {
-        r.recipe.required_items.Sort();
+        Debug.Log(r);
+
+        Debug.Log(r.rd);
+        Debug.Log(r.rd.getRecipeFromId(r.recipe_id));
+        Debug.Log(r);
+        Debug.Log(r.rd.getRecipeFromId(r.recipe_id).required_items);
+        r.rd.getRecipeFromId(r.recipe_id).required_items.Sort();
         r.currentState.Sort();
         int ii = 0;
         foreach (int id in r.currentState)

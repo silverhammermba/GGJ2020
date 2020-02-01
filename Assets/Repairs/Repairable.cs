@@ -3,12 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
 public class Repairable : Interactable
 {
     public List<int> currentState;
     public UIManager um;
     public Recipe recipe;
+    public RecipeDatabase rd;
+    public int recipe_id;
+    public CallbackLibrary cb;
+    public void Start()
+    {
+        cb = CallbackLibrary.Instance;
+        rd = RecipeDatabase.Instance;
+        Debug.Log(rd.getRecipeFromId(recipe_id).ToString());
+        this.recipe = rd.getRecipeFromId(recipe_id);
+        this.recipe.required_items = rd.getRecipeFromId(recipe_id).required_items;
+        this.recipe.reward_func_string = rd.getRecipeFromId(recipe_id).reward_func_string;
+    }
     public bool checkState()
     {
         if (currentState == recipe.required_items)
@@ -22,8 +33,6 @@ public class Repairable : Interactable
     }
     public override void interact()
     {
-        //TODO: Get the inventory better
-        PlayerController player = (PlayerController)FindObjectOfType(typeof(PlayerController));
         if (um.isToolTipEnabled())
         {
             um.disableToolTip();
@@ -53,7 +62,9 @@ public class Repairable : Interactable
         this.recipe.required_items.Sort();
         if (this.currentState.SequenceEqual(this.recipe.required_items))
         {
-            Debug.LogError("TRUE");
+            Debug.LogWarning("Repair complete!");
+            Debug.LogWarning("Invoking callback" + this.recipe.reward_func_string);
+            cb.Invoke(this.recipe.reward_func_string, 1f);
             return true;
         }
         else
