@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     public float moveForce;
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     GameObject currentlyInteractingObject;
     void Awake()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();    
         playerCollider = GetComponents<CircleCollider2D>()[0];
         jumpTester = GetComponents<CircleCollider2D>()[1];
         sprite = GetComponentInChildren<PlayerSpriteController>();
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         canMove = true;
+        canDash = false;
         radius = 1;
         jumpTester.radius = playerCollider.radius;
         startedTestingJump = false;
@@ -101,7 +102,6 @@ public class PlayerController : MonoBehaviour
         rigidBody.AddForce(move * nextForce);
         nextForce = moveForce;
     }
-
     void StartJump()
     {
         jumping = true;
@@ -212,12 +212,13 @@ public class PlayerController : MonoBehaviour
         for (int a = 0; a < gameObject.GetComponent<Inventory>().inventory.Count; a++)
         {
             if (currentlyInteractingObject.GetComponent<Repairable>().repairObject(gameObject.GetComponent<Inventory>().inventory[a]))
-            {
+            {   
                 Debug.LogWarning(gameObject.GetComponent<Inventory>().inventory[a].id.ToString() + " was a required item, and will be removed from your inventory");
                 gameObject.GetComponent<Inventory>().removeItem(a);
                 return;
             }
         }
+        Debug.Log(currentlyInteractingObject.GetComponent<Repairable>());
         um.populateTooltip(currentlyInteractingObject.GetComponent<Repairable>());
     }
 }

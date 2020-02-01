@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 566613654}
   - component: {fileID: 566613661}
   - component: {fileID: 566613662}
+  - component: {fileID: 566613663}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -694,6 +695,25 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &566613663
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566613653}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a81c321e6587140b08b889de4554086f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &729678062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1322215694}
   - component: {fileID: 1322215693}
+  - component: {fileID: 1322215695}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1339,6 +1360,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1322215695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322215692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0242db62166a4c7390be17fb7380af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pc: {fileID: 566613659}
+  daytime: 0
 --- !u!1 &1352961260
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,8 +2100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipes:
-  - required_items: 000000000000000000000000
-  - required_items: 
+  - id: 331
+    required_items: ea000000ea000000eb000000
+    reward_func_string: enableDash
+  - id: 332
+    required_items: ea000000eb000000
+    reward_func_string: enableDash
 --- !u!4 &1691592835
 Transform:
   m_ObjectHideFlags: 0
@@ -2241,7 +2280,11 @@ MonoBehaviour:
   currentState: 
   um: {fileID: 1322215693}
   recipe:
+    id: 0
     required_items: ea000000ea000000eb000000
+    reward_func_string: enableDash
+  recipe_id: 331
+  cb: {fileID: 0}
 --- !u!1 &1749164328
 GameObject:
   m_ObjectHideFlags: 0
