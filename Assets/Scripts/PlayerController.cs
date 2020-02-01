@@ -5,10 +5,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float moveForce;
     public float jumpDistance;
     public float jumpDuration; // time in seconds to complete the jump
-    public float jumpHeight;
+    public bool canJump;
+    public float dashForce;
+    public float dashCooldown;
+    public bool canDash;
 
     Rigidbody2D rigidBody;
     CircleCollider2D playerCollider;
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour
     float jumpStartTime;
     Vector3 jumpStartPosition;
     Vector3 jumpEndPosition;
+    float dashStartTime;
 
     void Awake()
     {
@@ -37,6 +41,7 @@ public class PlayerController : MonoBehaviour
         startedTestingJump = false;
         jumpFailed = false;
         jumping = false;
+        dashStartTime = Time.time - dashCooldown;
     }
 
     // Update is called once per frame
@@ -48,10 +53,7 @@ public class PlayerController : MonoBehaviour
 
             if (jumpProgress >= 1.0f)
             {
-                transform.position = jumpEndPosition;
-                jumping = false;
-                rigidBody.simulated = true;
-                sprite.JumpDone();
+                EndJump();
             }
             else
             {
@@ -65,10 +67,12 @@ public class PlayerController : MonoBehaviour
         var gamepad = Gamepad.current;
         if (gamepad == null) return;
 
+        move = gamepad.leftStick.ReadValue() * moveForce;
+
+        // mid-jump we don't use physics
         if (jumping) return;
 
-        move = gamepad.leftStick.ReadValue() * speed;
-
+        // if it's the frame after we tested jump, we should know the result
         if (startedTestingJump)
         {
             startedTestingJump = false;
@@ -79,17 +83,23 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                // TODO: update animation positions
-                Debug.Log("Jump succeeded");
                 StartJump();
             }
-        }
-        else if (gamepad.buttonSouth.isPressed)
+        } // otherwise maybe we can start testing a new jump
+        else if (canJump && gamepad.buttonSouth.isPressed)
         {
             TestJump(move);
         }
 
-        rigidBody.AddForce(move);
+        if (!startedTestingJump && canDash && gamepad.buttonEast.isPressed && dashStartTime + dashCooldown < Time.time)
+        {
+            dashStartTime = Time.time;
+            rigidBody.AddForce(move * (dashForce / moveForce));
+        }
+        else
+        {
+            rigidBody.AddForce(move);
+        }
     }
 
     void StartJump()
@@ -101,6 +111,14 @@ public class PlayerController : MonoBehaviour
         jumpStartTime = Time.time;
 
         sprite.JumpAnimation(jumpDuration);
+    }
+
+    void EndJump()
+    {
+        sprite.JumpDone();
+        transform.position = jumpEndPosition;
+        rigidBody.simulated = true;
+        jumping = false;
     }
 
     void TestJump(Vector2 direction)

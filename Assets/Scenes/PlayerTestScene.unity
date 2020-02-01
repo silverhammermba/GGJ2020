@@ -397,10 +397,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3353ceececc9faa8dadebfa5acc669fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  moveForce: 50
   jumpDistance: 2.5
-  jumpDuration: 1
-  jumpHeight: 0
+  jumpDuration: 0.6
+  canJump: 1
+  dashForce: 1500
+  dashCooldown: 1.5
+  canDash: 1
 --- !u!4 &852903168
 Transform:
   m_ObjectHideFlags: 0
