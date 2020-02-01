@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     PlayerSpriteController sprite;
 
     Vector2 move;
+    float nextForce;
     bool startedTestingJump;
     bool jumpFailed;
     bool jumping;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
         jumpFailed = false;
         jumping = false;
         dashStartTime = Time.time - dashCooldown;
+        nextForce = 0.0f;
     }
 
     // Update is called once per frame
@@ -64,11 +66,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        var gamepad = Gamepad.current;
-        if (gamepad == null) return;
-
-        move = gamepad.leftStick.ReadValue() * moveForce;
-
         // mid-jump we don't use physics
         if (jumping) return;
 
@@ -85,21 +82,10 @@ public class PlayerController : MonoBehaviour
             {
                 StartJump();
             }
-        } // otherwise maybe we can start testing a new jump
-        else if (canJump && gamepad.buttonSouth.isPressed)
-        {
-            TestJump(move);
         }
 
-        if (!startedTestingJump && canDash && gamepad.buttonEast.isPressed && dashStartTime + dashCooldown < Time.time)
-        {
-            dashStartTime = Time.time;
-            rigidBody.AddForce(move * (dashForce / moveForce));
-        }
-        else
-        {
-            rigidBody.AddForce(move);
-        }
+        rigidBody.AddForce(move * nextForce);
+        nextForce = moveForce;
     }
 
     void StartJump()
@@ -146,7 +132,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnMove(InputValue input)
     {
+        move = input.Get<Vector2>().normalized;
+    }
+
+    private void OnJump(InputValue input)
+    {
+        if (!canJump || jumping || startedTestingJump) return;
+
+        TestJump(move);
+    }
+
+    private void OnDash(InputValue input)
+    {
+        if (!canDash || jumping || startedTestingJump || dashStartTime + dashCooldown > Time.time) return;
+
+        dashStartTime = Time.time;
+        nextForce = dashForce;
     }
 }
