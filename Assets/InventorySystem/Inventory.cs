@@ -8,5 +8,8 @@ public class Inventory : MonoBehaviour
     public List<Item> inventory;
     public int maxSize;
     // Start is called before the first frame update
-    
+    public void addItem(Item i)
+    {
+        inventory.Add(i);
+    }
 }
