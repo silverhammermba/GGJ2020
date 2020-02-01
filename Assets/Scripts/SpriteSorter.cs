@@ -16,6 +16,6 @@ public class SpriteSorter : MonoBehaviour
 
     void LateUpdate()
     {
-        sprite.sortingOrder = -(int)((mainCollider.transform.position + (Vector3)mainCollider.offset).y * 100);
+        sprite.sortingOrder = -(int)(mainCollider.transform.TransformPoint(mainCollider.offset).y * 100);
     }
 }
