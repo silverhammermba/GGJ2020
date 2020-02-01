@@ -13,15 +13,19 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigidBody;
     CircleCollider2D playerCollider;
     CircleCollider2D jumpTester;
+    PlayerSpriteController sprite;
+
     Vector2 move;
     bool startedTestingJump;
     bool jumpFailed;
+    bool jumping;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponents<CircleCollider2D>()[0];
         jumpTester = GetComponents<CircleCollider2D>()[1];
+        sprite = GetComponentInChildren<PlayerSpriteController>();
     }
 
     void Start()
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
         jumpTester.radius = playerCollider.radius;
         startedTestingJump = false;
         jumpFailed = false;
+        jumping = false;
     }
 
     // Update is called once per frame
@@ -37,10 +42,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void JumpDone()
+    {
+        transform.position = transform.position + (Vector3)(move.normalized * jumpDistance);
+        jumping = false;
+        rigidBody.simulated = true;
+    }
+
     void FixedUpdate()
     {
         var gamepad = Gamepad.current;
         if (gamepad == null) return;
+
+        if (jumping) return;
 
         move = gamepad.leftStick.ReadValue() * speed;
 
@@ -54,8 +68,11 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                // TODO: do jump
+                // TODO: update animation positions
                 Debug.Log("Jump succeeded");
+                jumping = true;
+                rigidBody.simulated = false;
+                sprite.JumpAnimation();
             }
         }
         else if (gamepad.buttonSouth.isPressed)
