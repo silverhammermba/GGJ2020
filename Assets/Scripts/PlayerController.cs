@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpDistance;
-    public float jumpSpeed;
+    public float jumpDuration; // time in seconds to complete the jump
     public float jumpHeight;
 
     Rigidbody2D rigidBody;
@@ -72,18 +72,18 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Jump succeeded");
                 jumping = true;
                 rigidBody.simulated = false;
-                sprite.JumpAnimation();
+                sprite.JumpAnimation(jumpDuration);
             }
         }
         else if (gamepad.buttonSouth.isPressed)
         {
-            StartJump(move);
+            TestJump(move);
         }
 
         rigidBody.AddForce(move);
     }
 
-    void StartJump(Vector2 direction)
+    void TestJump(Vector2 direction)
     {
         if (startedTestingJump) return;
 
