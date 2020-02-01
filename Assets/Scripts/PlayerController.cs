@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
                     {
                         if (currentlyInteractingObject.GetComponent<Repairable>().repairObject(gameObject.GetComponent<Inventory>().inventory[a]))
                         {
-                            Debug.LogWarning(gameObject.GetComponent<Inventory>().inventory[a].id.ToString() + " was a required item, and will be removed from your inventory");
                             gameObject.GetComponent<Inventory>().removeItem(a);
                             return;
                         }
