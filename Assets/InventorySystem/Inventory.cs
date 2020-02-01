@@ -36,7 +36,6 @@ public class Inventory : MonoBehaviour
             {
                 if (inventory.Contains(i))
                 {
-                    Debug.Log("Item is stackable!");
                     int ind = inventory.IndexOf(i);
                     inventory[ind].stackSize = inventory[ind].stackSize + 1;
                     igc.refresh();
@@ -44,6 +43,7 @@ public class Inventory : MonoBehaviour
                 else
                 {
                     inventory.Add(i);
+                    igc.refresh();
                 }
             }
             else

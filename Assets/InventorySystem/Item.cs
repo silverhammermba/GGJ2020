@@ -12,7 +12,7 @@ public class Item
     public Sprite icon;
     public Item()
     {
-
+        stackSize = 1;
     }
    public Item(Item i)
     {

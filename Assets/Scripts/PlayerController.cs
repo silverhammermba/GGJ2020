@@ -66,15 +66,24 @@ public class PlayerController : MonoBehaviour
             {
                 if (gamepad.buttonNorth.wasPressedThisFrame)
                 {
-                    Debug.Log("Repair button was pressed");
                     for (int a = 0; a < gameObject.GetComponent<Inventory>().inventory.Count; a++)
                     {
                         if (currentlyInteractingObject.GetComponent<Repairable>().repairObject(gameObject.GetComponent<Inventory>().inventory[a]))
                         {
+                            Debug.LogWarning(gameObject.GetComponent<Inventory>().inventory[a].id.ToString() + " was a required item, and will be removed from your inventory");
                             gameObject.GetComponent<Inventory>().removeItem(a);
+                            return;
                         }
                     }
                     um.populateTooltip(currentlyInteractingObject.GetComponent<Repairable>());
+                }
+                if (gamepad.buttonSouth.wasPressedThisFrame)
+                {
+                    //Turn in
+                    if (currentlyInteractingObject.GetComponent<Repairable>().isDone())
+                    {
+                        um.disableToolTip();
+                    }
                 }
             }
             if (!um.isToolTipEnabled())

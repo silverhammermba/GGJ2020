@@ -344,12 +344,12 @@ PrefabInstance:
     - target: {fileID: 7406507710977369689, guid: 01d73a8e1875a4de9845201fcb67ba8b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 233
+      value: 314
       objectReference: {fileID: 0}
     - target: {fileID: 7406507710977369689, guid: 01d73a8e1875a4de9845201fcb67ba8b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 90
+      value: 171
       objectReference: {fileID: 0}
     - target: {fileID: 7406507710977369689, guid: 01d73a8e1875a4de9845201fcb67ba8b,
         type: 3}
@@ -855,37 +855,37 @@ MonoBehaviour:
     name: testRepairPart
     Description: How did you get this number
     isStackable: 1
-    stackSize: 0
+    stackSize: 1
     icon: {fileID: 21300000, guid: f2ab0f5fdcfcb07b0bb12bbbcbcff561, type: 3}
   - id: 235
     name: testFoodPart
     Description: nonstack
     isStackable: 0
-    stackSize: 0
+    stackSize: 1
     icon: {fileID: 21300000, guid: c9dfaa9b293994c3d8e94fd9c4b9d1b6, type: 3}
   - id: 003
     name: testFoodPart
     Description: Stackable test
     isStackable: 1
-    stackSize: 0
+    stackSize: 1
     icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 3}
   - id: 004
     name: testFoodPart
     Description: Stackable test
     isStackable: 1
-    stackSize: 0
+    stackSize: 1
     icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 3}
   - id: 005
     name: testFoodPart
     Description: Stackable test
     isStackable: 1
-    stackSize: 0
+    stackSize: 1
     icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 3}
   - id: 006
     name: testFoodPart
     Description: Stackable test
     isStackable: 1
-    stackSize: 0
+    stackSize: 1
     icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 3}
 --- !u!4 &986519178
 Transform:
@@ -1240,6 +1240,7 @@ MonoBehaviour:
   rtp: {fileID: 1634182506}
   slotFilled: {fileID: 21300000, guid: bc77616e0f5b84432a080f473af6b067, type: 3}
   slotEmpty: {fileID: 21300000, guid: c9dfaa9b293994c3d8e94fd9c4b9d1b6, type: 3}
+  _id: {fileID: 0}
 --- !u!4 &1322215694
 Transform:
   m_ObjectHideFlags: 0
@@ -1520,12 +1521,12 @@ PrefabInstance:
     - target: {fileID: 7406507710977369689, guid: 01d73a8e1875a4de9845201fcb67ba8b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 373
+      value: 194
       objectReference: {fileID: 0}
     - target: {fileID: 7406507710977369689, guid: 01d73a8e1875a4de9845201fcb67ba8b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 172
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 7406507710977369689, guid: 01d73a8e1875a4de9845201fcb67ba8b,
         type: 3}
@@ -1639,7 +1640,7 @@ PrefabInstance:
     - target: {fileID: 7406507710977369689, guid: 01d73a8e1875a4de9845201fcb67ba8b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 89
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7406507710977369689, guid: 01d73a8e1875a4de9845201fcb67ba8b,
         type: 3}
