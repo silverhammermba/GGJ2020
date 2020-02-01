@@ -6,13 +6,15 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float moveForce;
+    public bool canMove;
     public float jumpDistance;
     public float jumpDuration; // time in seconds to complete the jump
     public bool canJump;
     public float dashForce;
     public float dashCooldown;
     public bool canDash;
-
+    public int radius;
+    public UIManager um;
     Rigidbody2D rigidBody;
     CircleCollider2D playerCollider;
     CircleCollider2D jumpTester;
@@ -23,11 +25,12 @@ public class PlayerController : MonoBehaviour
     bool startedTestingJump;
     bool jumpFailed;
     bool jumping;
+    bool interacting;
     float jumpStartTime;
     Vector3 jumpStartPosition;
     Vector3 jumpEndPosition;
     float dashStartTime;
-
+    GameObject currentlyInteractingObject;
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -38,6 +41,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        canMove = true;
+        radius = 1;
         jumpTester.radius = playerCollider.radius;
         startedTestingJump = false;
         jumpFailed = false;
@@ -49,6 +54,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!um.isToolTipEnabled())
+        {
+            canMove = true;
+        }
+
         if (jumping)
         {
             float jumpProgress = (Time.time - jumpStartTime) / jumpDuration;
@@ -66,6 +76,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!canMove) return;
+
         // mid-jump we don't use physics
         if (jumping) return;
 
@@ -81,8 +93,10 @@ public class PlayerController : MonoBehaviour
             else
             {
                 StartJump();
+
             }
         }
+       
 
         rigidBody.AddForce(move * nextForce);
         nextForce = moveForce;
@@ -124,6 +138,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public GameObject attemptInteract()
+    {
+        interacting = true;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+        foreach (Collider2D hit in hits)
+        {
+            Debug.Log(hit.gameObject.name);
+            if (hit.gameObject.CompareTag("Interactable"))
+            {
+                Debug.Log("Interacted with an interactable");
+                hit.gameObject.GetComponent<Interactable>().interact();
+                return hit.gameObject;
+            }
+        }
+        return this.gameObject;
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (startedTestingJump)
@@ -137,18 +168,56 @@ public class PlayerController : MonoBehaviour
         move = input.Get<Vector2>().normalized;
     }
 
-    private void OnJump(InputValue input)
+    private void OnJump()
     {
-        if (!canJump || jumping || startedTestingJump) return;
+        if (um.isToolTipEnabled() && currentlyInteractingObject.GetComponent<Repairable>().isDone())
+        {
+            // TODO: do the effect of the repair
+            um.disableToolTip();
+            return;
+        }
+
+        if (!canJump || jumping || startedTestingJump || interacting) return;
 
         TestJump(move);
     }
 
-    private void OnDash(InputValue input)
+    private void OnDash()
     {
-        if (!canDash || jumping || startedTestingJump || dashStartTime + dashCooldown > Time.time) return;
+        if (um.isToolTipEnabled())
+        {
+            um.disableToolTip();
+            return;
+        }
+
+        if (!canDash || jumping || startedTestingJump || interacting || dashStartTime + dashCooldown > Time.time) return;
 
         dashStartTime = Time.time;
         nextForce = dashForce;
+    }
+
+    private void OnInteract()
+    {
+        if (jumping || startedTestingJump || interacting) return;
+
+        canMove = false;
+        currentlyInteractingObject = attemptInteract();
+        interacting = false;
+    }
+
+    private void OnUse()
+    {
+        if (!um.isToolTipEnabled()) return;
+
+        for (int a = 0; a < gameObject.GetComponent<Inventory>().inventory.Count; a++)
+        {
+            if (currentlyInteractingObject.GetComponent<Repairable>().repairObject(gameObject.GetComponent<Inventory>().inventory[a]))
+            {
+                Debug.LogWarning(gameObject.GetComponent<Inventory>().inventory[a].id.ToString() + " was a required item, and will be removed from your inventory");
+                gameObject.GetComponent<Inventory>().removeItem(a);
+                return;
+            }
+        }
+        um.populateTooltip(currentlyInteractingObject.GetComponent<Repairable>());
     }
 }
