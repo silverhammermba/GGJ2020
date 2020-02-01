@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2706894494661963186}
   - component: {fileID: 2706894494661963188}
   - component: {fileID: 2706894494661963192}
+  - component: {fileID: 947650005698189723}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -170,3 +171,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1190c0584213e6ff6a51753f0ccb2291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shadow: {fileID: 0}
+--- !u!114 &947650005698189723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2706894494661963187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: A portal. Or a pointless entryway. Who knows?

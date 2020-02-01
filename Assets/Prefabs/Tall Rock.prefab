@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2480327975007579634}
   - component: {fileID: 2480327975007579645}
   - component: {fileID: 2480327975007579644}
+  - component: {fileID: 1853149683457376062}
+  - component: {fileID: 672780894900678080}
   m_Layer: 0
   m_Name: Tall Rock
   m_TagString: Untagged
@@ -143,3 +145,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1190c0584213e6ff6a51753f0ccb2291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shadow: {fileID: 0}
+--- !u!114 &1853149683457376062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480327975007579647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Big. Mysterious. Contains secrets.
+--- !u!114 &672780894900678080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480327975007579647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Big. Mysterious. Contains secrets.
