@@ -27,14 +27,12 @@ public class PlayerSpriteController : MonoBehaviour
 
     public void JumpAnimation(float duration)
     {
-        // TODO: we could make this animation just do the Y coord and actually move the player linearly between the start and end points
         jumpAnimation["Jumping"].speed = 1.0f / duration;
         jumpAnimation.Play();
     }
 
     public void JumpDone()
     {
-        player.JumpDone();
         jumpAnimation.Stop();
         jumpAnimation.Rewind();
     }

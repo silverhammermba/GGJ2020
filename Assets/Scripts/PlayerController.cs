@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     bool startedTestingJump;
     bool jumpFailed;
     bool jumping;
+    float jumpStartTime;
+    Vector3 jumpStartPosition;
+    Vector3 jumpEndPosition;
 
     void Awake()
     {
@@ -39,14 +42,22 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (jumping)
+        {
+            float jumpProgress = (Time.time - jumpStartTime) / jumpDuration;
 
-    }
-
-    public void JumpDone()
-    {
-        transform.position = transform.position + (Vector3)(move.normalized * jumpDistance);
-        jumping = false;
-        rigidBody.simulated = true;
+            if (jumpProgress >= 1.0f)
+            {
+                transform.position = jumpEndPosition;
+                jumping = false;
+                rigidBody.simulated = true;
+                sprite.JumpDone();
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(jumpStartPosition, jumpEndPosition, jumpProgress);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -70,9 +81,7 @@ public class PlayerController : MonoBehaviour
             {
                 // TODO: update animation positions
                 Debug.Log("Jump succeeded");
-                jumping = true;
-                rigidBody.simulated = false;
-                sprite.JumpAnimation(jumpDuration);
+                StartJump();
             }
         }
         else if (gamepad.buttonSouth.isPressed)
@@ -81,6 +90,17 @@ public class PlayerController : MonoBehaviour
         }
 
         rigidBody.AddForce(move);
+    }
+
+    void StartJump()
+    {
+        jumping = true;
+        rigidBody.simulated = false;
+        jumpStartPosition = transform.position;
+        jumpEndPosition = transform.position + (Vector3)jumpTester.offset;
+        jumpStartTime = Time.time;
+
+        sprite.JumpAnimation(jumpDuration);
     }
 
     void TestJump(Vector2 direction)
