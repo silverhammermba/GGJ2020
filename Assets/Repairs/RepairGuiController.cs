@@ -5,6 +5,7 @@ using UnityEngine;
 public class RepairGuiController : MonoBehaviour
 {
     public Camera camera;
+    public GameObject panel;
     // Start is called before the first frame update
     //TODO: remove test class
     private void OnDrawGizmosSelected()

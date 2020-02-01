@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     public float dashForce;
     public float dashCooldown;
     public bool canDash;
-
+    public int radius;
+    public UIManager um;
     Rigidbody2D rigidBody;
     CircleCollider2D playerCollider;
     CircleCollider2D jumpTester;
@@ -22,11 +23,12 @@ public class PlayerController : MonoBehaviour
     bool startedTestingJump;
     bool jumpFailed;
     bool jumping;
+    bool interacting;
     float jumpStartTime;
     Vector3 jumpStartPosition;
     Vector3 jumpEndPosition;
     float dashStartTime;
-
+    Gamepad gamepad;
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -37,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        radius = 5;
+        gamepad = Gamepad.current;
         jumpTester.radius = playerCollider.radius;
         startedTestingJump = false;
         jumpFailed = false;
@@ -47,6 +51,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!interacting)
+        {
+            if (!jumping && gamepad.buttonWest.wasPressedThisFrame && !interacting)
+            {
+                attemptInteract();
+
+                interacting = false;
+            }
+        }
         if (jumping)
         {
             float jumpProgress = (Time.time - jumpStartTime) / jumpDuration;
@@ -84,12 +97,14 @@ public class PlayerController : MonoBehaviour
             else
             {
                 StartJump();
+
             }
         } // otherwise maybe we can start testing a new jump
         else if (canJump && gamepad.buttonSouth.isPressed)
         {
             TestJump(move);
         }
+       
 
         if (!startedTestingJump && canDash && gamepad.buttonEast.isPressed && dashStartTime + dashCooldown < Time.time)
         {
@@ -137,7 +152,21 @@ public class PlayerController : MonoBehaviour
             jumpFailed = true;
         }
     }
+    public void attemptInteract()
+    {
+        interacting = true;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+        foreach (Collider2D hit in hits)
+        {
+            Debug.Log(hit.gameObject.name);
+            if (hit.gameObject.CompareTag("Interactable"))
+            {
+                Debug.Log("Interacted with an interactable");
+                hit.gameObject.GetComponent<Interactable>().interact();
 
+            }
+        }
+    }
     private void OnTriggerStay2D(Collider2D other)
     {
         if (startedTestingJump)

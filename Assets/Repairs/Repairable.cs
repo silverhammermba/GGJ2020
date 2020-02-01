@@ -7,6 +7,7 @@ using UnityEngine;
 public class Repairable : Interactable
 {
     public List<int> currentState;
+    public UIManager um;
     public Recipe recipe;
     public bool checkState()
     {
@@ -23,6 +24,15 @@ public class Repairable : Interactable
     {
         //TODO: Get the inventory better
         PlayerController player = (PlayerController)FindObjectOfType(typeof(PlayerController));
+        if (um.isToolTipEnabled())
+        {
+            um.disableToolTip();
+        }
+        else
+        {
+            um.enabeTooltip();
+            um.populateTooltip(this);
+        }
     }
     public List<int> getRequiredItems()
     {
