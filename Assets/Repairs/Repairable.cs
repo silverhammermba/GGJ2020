@@ -17,8 +17,11 @@ public class Repairable : Interactable
     public CallbackLibrary cb;
     private Animator reward_anim;
     public bool hasAnim;
+    public AudioSource audioSource;
+    public List<AudioClip> repairSounds;
     public void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         gm = GameManager.Instance;
         if (this.hasAnim)
         {
@@ -135,6 +138,7 @@ public class Repairable : Interactable
             {
                 um.DisableRepairText();
             }
+            audioSource.PlayOneShot(repairSounds[UnityEngine.Random.Range(0, repairSounds.Count)], 0.21f);
             return true;
         }
         else
