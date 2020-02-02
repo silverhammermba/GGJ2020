@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown;
     public bool canDash;
     public int radius;
+    public Vector2 triggerLoc;
     public UIManager um;
     Rigidbody2D rigidBody;
     CircleCollider2D playerCollider;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        um = UIManager.Instance;
         canMove = true;
         canDash = false;
         canJump = false;
@@ -79,7 +81,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (!canMove) return;
-
+        attemptRead();
+        disableTextboxIfFar();
         // mid-jump we don't use physics
         if (jumping) return;
 
@@ -98,23 +101,17 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-       
+
+        if (rigidBody.velocity.x > 0.0f) sprite.flipX(false);
+        if (rigidBody.velocity.x < 0.0f) sprite.flipX(true);
 
         rigidBody.AddForce(move * nextForce);
         nextForce = moveForce;
         if (rigidBody.velocity.magnitude > 0.3f)
         {
-            if(rigidBody.velocity.x < 0.0f)
-            {
-                sprite.gameObject.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-            }
-            else if(rigidBody.velocity.x > 0.3f)
-            {
-                sprite.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            }
             sprite.WalkAnimation();
         }
-        else 
+        else
         {
             sprite.IdleAnimation();
         }
@@ -171,7 +168,30 @@ public class PlayerController : MonoBehaviour
         }
         return this.gameObject;
     }
-
+    public void disableTextboxIfFar()
+    {
+        Vector2 currentPos = this.gameObject.transform.position;
+        Debug.Log(Vector2.Distance(currentPos, triggerLoc));
+        if (Vector2.Distance(currentPos, triggerLoc) > 3.5)
+        {
+            um.textBox.SetActive(false);
+            um.isReading = false;
+        }
+    }
+    public void attemptRead()
+    {
+        if (um.isReading) return;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.gameObject.CompareTag("Describable"))
+            {
+                um.isReading = true;
+                triggerLoc = hit.gameObject.transform.position;
+                um.setText(hit.gameObject.GetComponent<Describable>().description);
+            }
+        }
+    }
     private void OnTriggerStay2D(Collider2D other)
     {
         if (startedTestingJump)

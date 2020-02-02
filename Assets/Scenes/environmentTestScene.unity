@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 150075097}
   - component: {fileID: 150075096}
   - component: {fileID: 150075095}
+  - component: {fileID: 150075098}
   m_Layer: 0
   m_Name: ItemType2 (6)
   m_TagString: Interactable
@@ -393,6 +394,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &150075098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150075094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: A rusted screwdriver
 --- !u!1 &153862849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,6 +1944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 915748283}
   - component: {fileID: 915748284}
+  - component: {fileID: 915748285}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Interactable
@@ -2002,6 +2017,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &915748285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915748282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
 --- !u!1 &939078896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,9 +2041,10 @@ GameObject:
   - component: {fileID: 939078898}
   - component: {fileID: 939078897}
   - component: {fileID: 939078899}
+  - component: {fileID: 939078900}
   m_Layer: 0
   m_Name: House
-  m_TagString: Untagged
+  m_TagString: Describable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2133,6 +2162,19 @@ PolygonCollider2D:
       - {x: 0.578125, y: -0.43}
       - {x: 1.109375, y: -0.4}
       - {x: 1.484375, y: -0.23}
+--- !u!114 &939078900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939078896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Me house
 --- !u!1 &943081895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,9 +2185,10 @@ GameObject:
   m_Component:
   - component: {fileID: 943081897}
   - component: {fileID: 943081896}
+  - component: {fileID: 943081898}
   m_Layer: 0
   m_Name: Wiring
-  m_TagString: Untagged
+  m_TagString: Describable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2215,6 +2258,19 @@ Transform:
   m_Father: {fileID: 2120972789}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &943081898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943081895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Me wires
 --- !u!1 &955012916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,6 +2472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1027180612}
   - component: {fileID: 1027180611}
+  - component: {fileID: 1027180613}
   m_Layer: 0
   m_Name: Debris
   m_TagString: Untagged
@@ -2499,6 +2556,19 @@ Transform:
   m_Father: {fileID: 2120972789}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1027180613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027180610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Me debris
 --- !u!1 &1044586635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,6 +2954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1323548127}
   - component: {fileID: 1323548128}
+  - component: {fileID: 1323548129}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Interactable
@@ -2956,6 +3027,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1323548129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323548126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
 --- !u!1 &1365810311
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,6 +3216,7 @@ GameObject:
   - component: {fileID: 1526293449}
   - component: {fileID: 1526293448}
   - component: {fileID: 1526293451}
+  - component: {fileID: 1526293452}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Interactable
@@ -3252,6 +3337,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &1526293452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526293447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
 --- !u!224 &1538719886 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7406507710977369689, guid: 01d73a8e1875a4de9845201fcb67ba8b,
@@ -3270,6 +3368,7 @@ GameObject:
   - component: {fileID: 1551472212}
   - component: {fileID: 1551472211}
   - component: {fileID: 1551472210}
+  - component: {fileID: 1551472213}
   m_Layer: 0
   m_Name: MainScreen
   m_TagString: Interactable
@@ -3358,6 +3457,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 32767
   m_TargetDisplay: 0
+--- !u!114 &1551472213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551472208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
 --- !u!1 &1551644031
 GameObject:
   m_ObjectHideFlags: 0
@@ -3450,6 +3562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1625230713}
   - component: {fileID: 1625230714}
+  - component: {fileID: 1625230715}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Interactable
@@ -3522,6 +3635,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1625230715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625230712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
 --- !u!1 &1650128621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4034,6 +4160,10 @@ MonoBehaviour:
   slotFilled: {fileID: 21300000, guid: bc77616e0f5b84432a080f473af6b067, type: 3}
   slotEmpty: {fileID: 21300000, guid: c9dfaa9b293994c3d8e94fd9c4b9d1b6, type: 3}
   _id: {fileID: 0}
+  textBox: {fileID: 0}
+  textValue: {fileID: 0}
+  textLoading: 0
+  targetString: 
 --- !u!4 &1846506189
 Transform:
   m_ObjectHideFlags: 0

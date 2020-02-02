@@ -10,11 +10,38 @@ public class UIManager : MonoBehaviour
     public Canvas mainUi;
     public RepairTooltip rtp;
     public Sprite slotFilled;
+    public bool isReading;
     public Sprite slotEmpty;
     public ItemDatabase _id;
+    public Vector2 triggerPos;
+    public GameObject textBox;
+    public Text textValue;
+
+    public bool textLoading = false;
+    public string targetString;
+
+    public static UIManager instance;
+    public static UIManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<UIManager>();
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(UIManager).Name;
+                    instance = obj.AddComponent<UIManager>();
+                }
+            }
+            return instance;
+        }
+    }
     public void Start()
     {
         _id = ItemDatabase.Instance;
+        this.triggerPos = this.transform.position;
     }
     public void enabeTooltip(Repairable r)
     {
@@ -81,4 +108,27 @@ public class UIManager : MonoBehaviour
             iz = iz + 1;
         }
     }
+    public void setText(string s) 
+    {
+        textBox.SetActive(true);
+        textValue.text = "";
+        textLoading = true;
+        StopAllCoroutines();
+        targetString = s;
+        StartCoroutine(displayText(s));
+    }
+    IEnumerator displayText(string s)
+    {
+        for (int i = 0; i < s.Length + 1; i++)
+        {
+            textValue.text = s.Substring(0, i);
+            yield return new WaitForSeconds(0.03f);
+        }
+        textLoading = false;
+        yield return new WaitForSeconds(5.0f);
+        textBox.SetActive(false);
+        this.isReading = false;
+    }
+
+
 }

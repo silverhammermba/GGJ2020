@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerSpriteController : MonoBehaviour
 {
-    PlayerController player;
     Animation jumpAnimation;
+    SpriteRenderer sprite;
     private Animator _anim;
     public string jumpAnim, walkAnim, idleAnim, dashAnim;
 
     void Awake()
     {
-        player = GetComponentInParent<PlayerController>();
+        sprite = GetComponent<SpriteRenderer>();
         jumpAnimation = GetComponent<Animation>();
         _anim = this.GetComponent<Animator>();
     }
@@ -27,6 +27,12 @@ public class PlayerSpriteController : MonoBehaviour
     {
         
     }
+
+    public void flipX(bool flip)
+    {
+        sprite.flipX = flip;
+    }
+
     public void WalkAnimation() 
     {
         _anim.Play(walkAnim);
