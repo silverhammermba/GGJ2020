@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown;
     public bool canDash;
     public int radius;
-    private string lastReadText;
     public UIManager um;
     Rigidbody2D rigidBody;
     CircleCollider2D playerCollider;
@@ -102,7 +101,6 @@ public class PlayerController : MonoBehaviour
        
 
         rigidBody.AddForce(move * nextForce);
-        attemptRead();
         nextForce = moveForce;
         if (rigidBody.velocity.magnitude > 0.3f)
         {
@@ -156,19 +154,7 @@ public class PlayerController : MonoBehaviour
             jumpFailed = true;
         }
     }
-    public void attemptRead()
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
-        foreach (Collider2D hit in hits)
-        {   
-            if (hit.gameObject.CompareTag("Describable"))
-            {
-                if (lastReadText != hit.gameObject.GetComponent<Describable>().description){
-                    Debug.Log(hit.gameObject.GetComponent<Describable>().description);
-                }
-            }
-        }
-    }
+
     public GameObject attemptInteract()
     {
         interacting = true;
@@ -244,6 +230,7 @@ public class PlayerController : MonoBehaviour
         {
             if (currentlyInteractingObject.GetComponent<Repairable>().repairObject(gameObject.GetComponent<Inventory>().inventory[a]))
             {   
+                Debug.LogWarning(gameObject.GetComponent<Inventory>().inventory[a].id.ToString() + " was a required item, and will be removed from your inventory");
                 gameObject.GetComponent<Inventory>().removeItem(a);
                 return;
             }
