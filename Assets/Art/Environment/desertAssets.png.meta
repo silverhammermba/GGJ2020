@@ -47,6 +47,9 @@ TextureImporter:
   - first:
       213: -2187381550912669865
     second: desertAssets_14
+  - first:
+      213: -3910074505275504616
+    second: desertAssets_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -429,11 +432,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 109
-        y: 282
+        y: 289
         width: 134
-        height: 21
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -441,6 +444,27 @@ TextureImporter:
       bones: []
       spriteID: 7577b95911cd4a1e0800000000000000
       internalID: -2187381550912669865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desertAssets_15
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 326
+        width: 15
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8180eb334ff9cb9c0800000000000000
+      internalID: -3910074505275504616
       vertices: []
       indices: 
       edges: []
