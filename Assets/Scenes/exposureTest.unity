@@ -1842,9 +1842,10 @@ GameObject:
   - component: {fileID: 939078898}
   - component: {fileID: 939078897}
   - component: {fileID: 939078899}
+  - component: {fileID: 939078900}
   m_Layer: 0
   m_Name: House
-  m_TagString: Untagged
+  m_TagString: Describable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1962,6 +1963,19 @@ PolygonCollider2D:
       - {x: 0.578125, y: -0.43}
       - {x: 1.109375, y: -0.4}
       - {x: 1.484375, y: -0.23}
+--- !u!114 &939078900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939078896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Me house
 --- !u!1 &943081895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,7 +2266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1016041962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2612,6 +2626,7 @@ MonoBehaviour:
   dashCooldown: 1.5
   canDash: 1
   radius: 0
+  triggerLoc: {x: 0, y: 0}
   um: {fileID: 1846506188}
 --- !u!4 &1044586644
 Transform:
@@ -3769,8 +3784,14 @@ MonoBehaviour:
   mainUi: {fileID: 0}
   rtp: {fileID: 617948269}
   slotFilled: {fileID: 21300000, guid: bc77616e0f5b84432a080f473af6b067, type: 3}
+  isReading: 0
   slotEmpty: {fileID: 21300000, guid: c9dfaa9b293994c3d8e94fd9c4b9d1b6, type: 3}
   _id: {fileID: 0}
+  triggerPos: {x: 0, y: 0}
+  textBox: {fileID: 1016041961}
+  textValue: {fileID: 644427700}
+  textLoading: 0
+  targetString: 
 --- !u!4 &1846506189
 Transform:
   m_ObjectHideFlags: 0
