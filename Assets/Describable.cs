@@ -5,16 +5,22 @@ using UnityEngine;
 public class Describable : MonoBehaviour
 {
     public string description;
+    public List<string> dialogue;
 
-    // Start is called before the first frame update
-    void Start()
+    int nextIndex;
+
+    public string StartDescription()
     {
-        
+        nextIndex = 0;
+        return description;
     }
 
-    // Update is called once per frame
-    void Update()
+    public string NextText()
     {
-        
+        if (dialogue == null || nextIndex >= dialogue.Count) return null;
+
+        nextIndex += 1;
+
+        return dialogue[nextIndex - 1];
     }
 }

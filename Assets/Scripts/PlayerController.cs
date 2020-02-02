@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     float dashStartTime;
     GameObject currentlyInteractingObject;
     bool isContinouslyInteracting;
+    Describable describable;
 
     public float interactTime;
     public float maxInteractTime;
@@ -197,6 +198,7 @@ public class PlayerController : MonoBehaviour
         {
             um.textBox.SetActive(false);
             um.isReading = false;
+            describable = null;
         }
     }
     public void attemptRead()
@@ -207,9 +209,14 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.gameObject.CompareTag("Describable"))
             {
-                um.isReading = true;
-                triggerLoc = hit.gameObject.transform.position;
-                um.setText(hit.gameObject.GetComponent<Describable>().description);
+                Describable newDescribable = hit.gameObject.GetComponent<Describable>();
+                if (newDescribable != describable)
+                {
+                    describable = newDescribable;
+                    um.isReading = true;
+                    triggerLoc = hit.gameObject.transform.position;
+                    um.setText(describable.StartDescription());
+                }
             }
         }
     }
@@ -296,6 +303,19 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (!isContinouslyInteracting && um.isReading && describable != null)
+        {
+            string nextText = describable.NextText();
+            if (nextText == null)
+            {
+                um.textBox.SetActive(false);
+                um.isReading = false;
+            }
+            else
+            {
+                um.setText(nextText);
+            }
+        }
     }
 
     private void OnUse()
