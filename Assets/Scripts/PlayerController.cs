@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         canMove = true;
         canDash = false;
+        canJump = false;
         radius = 1;
         jumpTester.radius = playerCollider.radius;
         startedTestingJump = false;
