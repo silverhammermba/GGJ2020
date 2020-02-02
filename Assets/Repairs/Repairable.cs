@@ -10,6 +10,8 @@ public class Repairable : Interactable
     public Recipe recipe;
     public RecipeDatabase rd;
     public int recipe_id;
+    public string reward;
+    public GameObject affectedobj;
     public CallbackLibrary cb;
     public void Start()
     {
@@ -39,7 +41,8 @@ public class Repairable : Interactable
         }
         else
         {
-            um.enabeTooltip();
+            um.clearTooltip(this);
+            um.enabeTooltip(this);
             um.populateTooltip(this);
         }
     }
@@ -64,6 +67,7 @@ public class Repairable : Interactable
         {
             Debug.LogWarning("Repair complete!");
             Debug.LogWarning("Invoking callback" + this.recipe.reward_func_string);
+            //affectedobj.SendMessage(reward);
             cb.Invoke(this.recipe.reward_func_string, 1f);
             return true;
         }

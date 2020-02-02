@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     {
         _id = ItemDatabase.Instance;
     }
-    public void enabeTooltip()
+    public void enabeTooltip(Repairable r)
     {
         rtp.gameObject.SetActive(true);
     }
@@ -58,23 +58,27 @@ public class UIManager : MonoBehaviour
             rtp.gameObject.transform.GetChild(id).gameObject.SetActive(true);
             rtp.gameObject.transform.GetChild(id).gameObject.GetComponent<Image>().sprite = slotEmpty;
         }
-        }
+     }
     public void populateTooltip(Repairable r)
     {
-        Debug.Log(r);
-
-        Debug.Log(r.rd);
-        Debug.Log(r.rd.getRecipeFromId(r.recipe_id));
-        Debug.Log(r);
-        Debug.Log(r.rd.getRecipeFromId(r.recipe_id).required_items);
+        //nstanitateTooltip(r);
         r.rd.getRecipeFromId(r.recipe_id).required_items.Sort();
         r.currentState.Sort();
         int ii = 0;
         foreach (int id in r.currentState)
         {
-            Debug.LogWarning(rtp.gameObject.transform.GetChild(ii).gameObject.name);
             rtp.gameObject.transform.GetChild(ii).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = _id.getItemFromId(id).icon;
             ii = ii + 1;
+        }
+    }
+    public void clearTooltip(Repairable r)  
+    {
+        //nstanitateTooltip(r);
+        int iz = 0;
+        foreach (int id in r.recipe.required_items)
+        {
+            rtp.gameObject.transform.GetChild(iz).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = slotEmpty;
+            iz = iz + 1;
         }
     }
 }
