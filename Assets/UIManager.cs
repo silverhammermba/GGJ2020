@@ -10,9 +10,10 @@ public class UIManager : MonoBehaviour
     public Canvas mainUi;
     public RepairTooltip rtp;
     public Sprite slotFilled;
+    public bool isReading;
     public Sprite slotEmpty;
     public ItemDatabase _id;
-
+    public Vector2 triggerPos;
     public GameObject textBox;
     public Text textValue;
 
@@ -40,6 +41,7 @@ public class UIManager : MonoBehaviour
     public void Start()
     {
         _id = ItemDatabase.Instance;
+        this.triggerPos = this.transform.position;
     }
     public void enabeTooltip(Repairable r)
     {
@@ -125,6 +127,8 @@ public class UIManager : MonoBehaviour
         textLoading = false;
         yield return new WaitForSeconds(5.0f);
         textBox.SetActive(false);
+        this.isReading = false;
     }
+
 
 }
