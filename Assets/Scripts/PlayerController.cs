@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown;
     public bool canDash;
     public int radius;
+    public Vector2 triggerLoc;
     public UIManager um;
     Rigidbody2D rigidBody;
     CircleCollider2D playerCollider;
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public float maxInteractTime;
     void Awake()
     {
-        rigidBody = GetComponent<Rigidbody2D>();    
+        rigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponents<CircleCollider2D>()[0];
         jumpTester = GetComponents<CircleCollider2D>()[1];
         sprite = GetComponentInChildren<PlayerSpriteController>();
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        um = UIManager.Instance;
         canMove = true;
         canDash = false;
         canJump = false;
@@ -99,7 +101,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (!canMove) return;
-
+        attemptRead();
+        disableTextboxIfFar();
         // mid-jump we don't use physics
         if (jumping) return;
 
@@ -183,7 +186,30 @@ public class PlayerController : MonoBehaviour
         }
         return null;
     }
-
+    public void disableTextboxIfFar()
+    {
+        Vector2 currentPos = this.gameObject.transform.position;
+        Debug.Log(Vector2.Distance(currentPos, triggerLoc));
+        if (Vector2.Distance(currentPos, triggerLoc) > 3.5)
+        {
+            um.textBox.SetActive(false);
+            um.isReading = false;
+        }
+    }
+    public void attemptRead()
+    {
+        if (um.isReading) return;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.gameObject.CompareTag("Describable"))
+            {
+                um.isReading = true;
+                triggerLoc = hit.gameObject.transform.position;
+                um.setText(hit.gameObject.GetComponent<Describable>().description);
+            }
+        }
+    }
     private void OnTriggerStay2D(Collider2D other)
     {
         if (startedTestingJump)
@@ -265,7 +291,7 @@ public class PlayerController : MonoBehaviour
         for (int a = 0; a < gameObject.GetComponent<Inventory>().inventory.Count; a++)
         {
             if (currentlyInteractingObject.GetComponent<Repairable>().repairObject(gameObject.GetComponent<Inventory>().inventory[a]))
-            {   
+            {
                 Debug.LogWarning(gameObject.GetComponent<Inventory>().inventory[a].id.ToString() + " was a required item, and will be removed from your inventory");
                 gameObject.GetComponent<Inventory>().removeItem(a);
                 return;
