@@ -14,15 +14,24 @@ public class Repairable : Interactable
     public string reward;
     public GameObject affectedobj;
     public CallbackLibrary cb;
+    private Animator reward_anim;
+    public bool hasAnim;
     public void Start()
     {
+        if (this.hasAnim)
+        {
+            reward_anim = this.gameObject.GetComponent<Animator>();
+        }
         isFinished = false;
         cb = CallbackLibrary.Instance;
         rd = RecipeDatabase.Instance;
-        Debug.Log(rd.getRecipeFromId(recipe_id).ToString());
+        Debug.LogWarning(rd.getRecipeFromId(recipe_id).repair_anim_string.ToString());
         this.recipe = rd.getRecipeFromId(recipe_id);
+        this.recipe.name = rd.getRecipeFromId(recipe_id).name;
         this.recipe.required_items = rd.getRecipeFromId(recipe_id).required_items;
         this.recipe.reward_func_string = rd.getRecipeFromId(recipe_id).reward_func_string;
+        this.recipe.repair_anim_string = rd.getRecipeFromId(recipe_id).repair_anim_string;
+        this.recipe.richText_description = rd.getRecipeFromId(recipe_id).richText_description;
     }
     public bool checkState()
     {
@@ -69,9 +78,15 @@ public class Repairable : Interactable
         {
             Debug.LogWarning("Repair complete!");
             Debug.LogWarning("Invoking callback" + this.recipe.reward_func_string);
+            
             //affectedobj.SendMessage(reward);
             this.isFinished = true;
-            cb.Invoke(this.recipe.reward_func_string, 1f);
+            if (this.hasAnim)
+            {
+                Debug.Log("Playing finished anim: " + this.recipe.repair_anim_string);
+                reward_anim.Play(rd.getRecipeFromId(recipe_id).repair_anim_string);
+            }
+            cb.Invoke(rd.getRecipeFromId(recipe_id).reward_func_string, 1f);
             return true;
         }
         else

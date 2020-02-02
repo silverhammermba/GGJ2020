@@ -16,8 +16,11 @@ public class RecipeDatabase : MonoBehaviour
             {
                 Debug.LogWarning("Found recipe");
                 re.id = i.id;
+                re.name = i.name;
                 re.required_items = i.required_items;
                 re.reward_func_string = i.reward_func_string;
+                re.repair_anim_string = i.repair_anim_string;
+                re.richText_description = i.richText_description;
             }
         }
         return re;
