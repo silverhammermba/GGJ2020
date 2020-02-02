@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     public float moveForce;
+    public float timescale = 1f;
     public bool canMove;
     public float jumpDistance;
     public float jumpDuration; // time in seconds to complete the jump
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
     CircleCollider2D playerCollider;
     CircleCollider2D jumpTester;
     PlayerSpriteController sprite;
-
+    public bool isPaused;
     Vector2 move;
     float nextForce;
     bool startedTestingJump;
@@ -47,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        timescale = 1f;
+        isPaused = false;
         um = UIManager.Instance;
         canMove = true;
         canDash = false;
@@ -228,7 +231,18 @@ public class PlayerController : MonoBehaviour
     {
         move = input.Get<Vector2>().normalized;
     }
-
+    private void OnStopGame() {
+        if (Time.timeScale == 0)
+        {
+            um.unPauseFade();
+            Time.timeScale = 1;
+        }
+        else
+        {
+            um.pauseFade();
+            Time.timeScale = 0;
+        }
+    }
     private void OnJump()
     {
         if (um.isToolTipEnabled() && currentlyInteractingObject.GetComponent<Repairable>().isDone())

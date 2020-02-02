@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public Vector2 triggerPos;
     public bool isReading;
     public Text textValue;
+    public Image blackFade;
 
     public bool textLoading = false;
     public string targetString;
@@ -26,7 +27,7 @@ public class UIManager : MonoBehaviour
     public Image lootBarFill;
     private Camera _main;
     public Animator fadeAnimator;
-
+    public Text pauseText;
     public static UIManager instance;
     public static UIManager Instance
     {
@@ -44,6 +45,16 @@ public class UIManager : MonoBehaviour
             }
             return instance;
         }
+    }
+    public void pauseFade()
+    {
+        blackFade.color = new Color(0.0f, 0.0f, 0.0f, .5f);
+        pauseText.gameObject.SetActive(true);
+    }
+    public void unPauseFade()
+    {
+        blackFade.color = new Color(0.0f, 0.0f, 0.0f, 0f);
+        pauseText.gameObject.SetActive(false);
     }
     public void Start()
     {
