@@ -27,7 +27,7 @@ public class Pickup : Interactable
             this.GetComponent<Animator>().Play(openchest_idle_name);
             //this.GetComponent<SpriteRenderer>().sprite = openchest;
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            //Destroy(this.gameObject.GetComponent<Rigidbody2D>());
+            Destroy(this.gameObject.GetComponent<Rigidbody2D>());
         }
         else
         {
