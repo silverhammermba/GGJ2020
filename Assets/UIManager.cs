@@ -97,6 +97,7 @@ public class UIManager : MonoBehaviour
     public void populateTooltip(Repairable r)
     {
         //nstanitateTooltip(r);
+
         r.rd.getRecipeFromId(r.recipe_id).required_items.Sort();
         r.currentState.Sort();
         int ii = 0;
@@ -106,11 +107,15 @@ public class UIManager : MonoBehaviour
             rtp.gameObject.transform.GetChild(ii).gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             ii = ii + 1;
         }
+        rtp.gameObject.transform.GetChild(4).gameObject.GetComponent<Text>().text = r.rd.getRecipeFromId(r.recipe_id).name;
+        rtp.gameObject.transform.GetChild(5).gameObject.GetComponent<Text>().text = r.rd.getRecipeFromId(r.recipe_id).richText_description;
         if (r.isFinished){
             this.repairText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            rtp.gameObject.transform.GetChild(7).gameObject.SetActive(true);
         }
         else {
-             this.repairText.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            rtp.gameObject.transform.GetChild(7).gameObject.SetActive(false);
+            this.repairText.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
         }
     }
 
@@ -145,6 +150,15 @@ public class UIManager : MonoBehaviour
             rtp.gameObject.transform.GetChild(iz).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = _id.getItemFromId(id).icon;
             rtp.gameObject.transform.GetChild(iz).gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
             iz = iz + 1;
+        }
+        if (r.recipe.required_items.Count < 3)
+        {
+            int dif = 3 - r.recipe.required_items.Count;
+            for (int j = 2; j > dif; j--)
+            {
+                rtp.gameObject.transform.GetChild(j).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = slotEmpty;
+                rtp.gameObject.transform.GetChild(j).gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.5f); 
+            }
         }
     }
     public void EnableRepairText() 

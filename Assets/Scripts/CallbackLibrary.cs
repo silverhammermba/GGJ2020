@@ -38,6 +38,11 @@ public class CallbackLibrary : MonoBehaviour
     //    PlayerController player = (PlayerController)FindObjectOfType(typeof(PlayerController));
     //    player.canDash = true;
     //}
+    public void lowerExposure()
+    {
+        Debug.Log("Exposure rate lowered!");
+        pc.gameObject.GetComponent<PlayerManager>().exposureLevelMultiplier = pc.gameObject.GetComponent<PlayerManager>().exposureLevelMultiplier * 0.9f;
+    }
     public void enableJump()
     {
         Debug.Log("Jump enabled!");
