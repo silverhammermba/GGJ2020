@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7629540462102337663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7629540462102337601}
+  - component: {fileID: 7629540462102337662}
+  m_Layer: 0
+  m_Name: _ItemDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7629540462102337601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629540462102337663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7629540462102337662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629540462102337663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e23d3a830684c55beeab5c4ae52c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - id: 1
+    name: bolts
+    Description: A stack of stray bolts
+    isStackable: 1
+    stackSize: 1
+    icon: {fileID: 5207414818686125126, guid: 5d2bcb32201a29c4fb2b786df5615ead, type: 3}
+  - id: 2
+    name: wrench
+    Description: A heavy wrench s
+    isStackable: 0
+    stackSize: 1
+    icon: {fileID: -6120875838143198034, guid: 5d2bcb32201a29c4fb2b786df5615ead, type: 3}
+  - id: 3
+    name: coffee
+    Description: A piping hot thermos of coffees
+    isStackable: 1
+    stackSize: 1
+    icon: {fileID: 2487727993384326711, guid: 4c1e4f77a84fdbc4796de80db78263ae, type: 3}
+  - id: 4
+    name: duct tape
+    Description: Fixes everything
+    isStackable: 1
+    stackSize: 1
+    icon: {fileID: -6851983354288057592, guid: 4c1e4f77a84fdbc4796de80db78263ae, type: 3}
+  - id: 5
+    name: coil
+    Description: A hydroelectric coil for cooking
+    isStackable: 0
+    stackSize: 1
+    icon: {fileID: 21300000, guid: d69ba1a4189536f44b297853d6a3473b, type: 3}
+  - id: 6
+    name: filter
+    Description: An old, pre-war gas mask filter
+    isStackable: 0
+    stackSize: 1
+    icon: {fileID: 21300000, guid: 021b73377a84e25439ccf5aecaebbc02, type: 3}
+  - id: 7
+    name: ram
+    Description: A stick of powerful looking ram
+    isStackable: 1
+    stackSize: 0
+    icon: {fileID: 4945033757712923403, guid: 0d46f822550f518429f9051171c30f0b, type: 3}
+  - id: 8
+    name: motherboard
+    Description: A heavy silicon motherboard
+    isStackable: 0
+    stackSize: 1
+    icon: {fileID: -5488187182809537605, guid: 0d46f822550f518429f9051171c30f0b, type: 3}
+  - id: 
+    name: 
+    Description: 
+    isStackable: 0
+    stackSize: 0
+    icon: {fileID: 0}
+  - id: 
+    name: 
+    Description: 
+    isStackable: 0
+    stackSize: 0
+    icon: {fileID: 0}

@@ -26,7 +26,6 @@ public class Pickup : Interactable
             createItems();
             this.GetComponent<Animator>().Play(openchest_idle_name);
             //this.GetComponent<SpriteRenderer>().sprite = openchest;
-
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             //Destroy(this.gameObject.GetComponent<Rigidbody2D>());
         }
@@ -46,7 +45,6 @@ public class Pickup : Interactable
     {
         foreach(int id in spawnables)
         {
-            Debug.LogWarning("Created loot");
             lootboxPref.gameObject.GetComponent<Pickup>().itemId = id;
             GameObject loot = (GameObject) Instantiate(lootboxPref.gameObject, this.transform.position, Quaternion.identity);
             loot.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * 1.5f;
