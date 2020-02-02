@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 444184791889907780}
   - component: {fileID: 2346828543678741689}
   m_Layer: 0
-  m_Name: Kelp
+  m_Name: Newsbot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 444184791889907791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -50.66, y: -33.59, z: -2.2120743}
-  m_LocalScale: {x: 0.07032314, y: 0.073866144, z: 1.0042231}
+  m_LocalScale: {x: 1.6696105, y: 1.7537284, z: 23.842245}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c59d8511c6ba62a4a85e1de89faa63c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96aba2f123f60b94ea8c481104530dd9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,14 +102,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.34, y: 4.91}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.27, y: 0.89}
+  m_Size: {x: 0.22, y: 0.29}
   m_EdgeRadius: 0
 --- !u!50 &444184791889907784
 Rigidbody2D:
@@ -158,3 +158,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Clinkclankclink.
+  dialogue: []
