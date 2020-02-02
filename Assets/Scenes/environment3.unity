@@ -5672,6 +5672,7 @@ GameObject:
   - component: {fileID: 256828147}
   - component: {fileID: 256828149}
   - component: {fileID: 256828148}
+  - component: {fileID: 256828150}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -5792,6 +5793,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &256828150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256828146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Home soote home.
 --- !u!1001 &258501633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34079,6 +34093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1597493526}
   - component: {fileID: 1597493527}
+  - component: {fileID: 1597493528}
   m_Layer: 0
   m_Name: Wiring
   m_TagString: Untagged
@@ -34151,6 +34166,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1597493528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597493525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Someday, this could work again.
 --- !u!1001 &1603138706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35350,6 +35378,7 @@ GameObject:
   - component: {fileID: 1674995026}
   - component: {fileID: 1674995025}
   - component: {fileID: 1674995024}
+  - component: {fileID: 1674995027}
   m_Layer: 0
   m_Name: Ventilation
   m_TagString: Untagged
@@ -35474,6 +35503,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1674995027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674995022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: You can feel a quiet whirring coming from deep within.
 --- !u!1 &1675040877
 GameObject:
   m_ObjectHideFlags: 0
@@ -38110,6 +38152,7 @@ GameObject:
   - component: {fileID: 1795997284}
   - component: {fileID: 1795997283}
   - component: {fileID: 1795997282}
+  - component: {fileID: 1795997286}
   m_Layer: 0
   m_Name: Fabricator
   m_TagString: Interactable
@@ -38260,6 +38303,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1795997286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795997280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Makes all the food you could ever need.
 --- !u!1 &1800322105
 GameObject:
   m_ObjectHideFlags: 0
@@ -45561,6 +45617,7 @@ GameObject:
   - component: {fileID: 2131582162}
   - component: {fileID: 2131582164}
   - component: {fileID: 2131582163}
+  - component: {fileID: 2131582165}
   m_Layer: 0
   m_Name: Navigation
   m_TagString: Untagged
@@ -45669,6 +45726,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2131582165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131582161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 'Its name is Bzzorjk. '
 --- !u!1001 &2135497221
 PrefabInstance:
   m_ObjectHideFlags: 0
