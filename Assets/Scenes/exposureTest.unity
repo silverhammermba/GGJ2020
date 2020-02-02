@@ -2983,6 +2983,7 @@ GameObject:
   m_IsActive: 1
 --- !u!224 &1097516183
 RectTransform:
+<<<<<<< HEAD:Assets/Scenes/exposureTest.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3002,11 +3003,35 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1097516184
 MonoBehaviour:
+=======
+>>>>>>> 8b5c595dfe9676d0ac2b5c500da2ea87f7b9de1a:Assets/Scenes/exposureTest.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097516182}
+<<<<<<< HEAD:Assets/Scenes/exposureTest.unity
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1048236810}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1012, y: 68}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1097516184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097516182}
+>>>>>>> 8b5c595dfe9676d0ac2b5c500da2ea87f7b9de1a:Assets/Scenes/exposureTest.unity
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -3118,6 +3143,7 @@ BoxCollider2D:
 --- !u!50 &1256115177
 Rigidbody2D:
   serializedVersion: 4
+<<<<<<< HEAD:Assets/Scenes/exposureTest.unity
 <<<<<<< HEAD:Assets/Scenes/environmentTestScene.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3173,10 +3199,13 @@ Transform:
 SpriteRenderer:
 =======
 >>>>>>> 8b5c595dfe9676d0ac2b5c500da2ea87f7b9de1a:Assets/Scenes/exposureTest.unity
+=======
+>>>>>>> 8b5c595dfe9676d0ac2b5c500da2ea87f7b9de1a:Assets/Scenes/exposureTest.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/exposureTest.unity
 <<<<<<< HEAD:Assets/Scenes/environmentTestScene.unity
   m_GameObject: {fileID: 1323548126}
   m_Enabled: 1
@@ -3237,6 +3266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
 =======
+=======
+>>>>>>> 8b5c595dfe9676d0ac2b5c500da2ea87f7b9de1a:Assets/Scenes/exposureTest.unity
   m_GameObject: {fileID: 1256115174}
   m_BodyType: 1
   m_Simulated: 1
@@ -3251,6 +3282,9 @@ MonoBehaviour:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< HEAD:Assets/Scenes/exposureTest.unity
+>>>>>>> 8b5c595dfe9676d0ac2b5c500da2ea87f7b9de1a:Assets/Scenes/exposureTest.unity
+=======
 >>>>>>> 8b5c595dfe9676d0ac2b5c500da2ea87f7b9de1a:Assets/Scenes/exposureTest.unity
 --- !u!1 &1365810311
 GameObject:
@@ -3416,6 +3450,7 @@ Transform:
   m_Father: {fileID: 1027180612}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scenes/exposureTest.unity
 <<<<<<< HEAD:Assets/Scenes/environmentTestScene.unity
 --- !u!1 &1526293447
 GameObject:
@@ -3563,6 +3598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: 
+=======
+>>>>>>> 8b5c595dfe9676d0ac2b5c500da2ea87f7b9de1a:Assets/Scenes/exposureTest.unity
 =======
 >>>>>>> 8b5c595dfe9676d0ac2b5c500da2ea87f7b9de1a:Assets/Scenes/exposureTest.unity
 --- !u!224 &1538719886 stripped
