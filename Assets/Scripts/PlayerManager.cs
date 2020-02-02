@@ -10,16 +10,26 @@ public class PlayerManager : MonoBehaviour
     public float exposureClearMultiplier;
     public ExposureBarController _exp;
     public bool isHome;
+    private GameManager _gm;
     // Start is called before the first frame update
     void Start()
     {
         exposureLevel = maxExposureLevel;
+        _gm = GameManager.Instance;
     }
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Home")
         {
             this.isHome = true;
+        }
+        if(col.tag == "TeleportArea")
+        {
+            TeleportArea t = col.GetComponent<TeleportArea>();
+            if(t) 
+            {
+                _gm.TeleportPlayerToLocation(t.teleportLocation);
+            }
         }
     }
 

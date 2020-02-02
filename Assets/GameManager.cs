@@ -6,6 +6,25 @@ public class GameManager : MonoBehaviour
 {
     private UIManager _ui;
     private PlayerController _player;
+
+    public static GameManager instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<GameManager>();
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(GameManager).Name;
+                    instance = obj.AddComponent<GameManager>();
+                }
+            }
+            return instance;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
