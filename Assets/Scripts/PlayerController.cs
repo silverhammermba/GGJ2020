@@ -189,7 +189,6 @@ public class PlayerController : MonoBehaviour
     public void disableTextboxIfFar()
     {
         Vector2 currentPos = this.gameObject.transform.position;
-        Debug.Log(Vector2.Distance(currentPos, triggerLoc));
         if (Vector2.Distance(currentPos, triggerLoc) > 3.5)
         {
             um.textBox.SetActive(false);

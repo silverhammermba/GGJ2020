@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Home
+  - Describable
   layers:
   - Default
   - TransparentFX

@@ -29,7 +29,6 @@ public class PlayerManager : MonoBehaviour
         {
             this.isHome = true;
         }
-        print("PLEASE");
     }
 
     void OnTriggerExit2D(Collider2D col)
