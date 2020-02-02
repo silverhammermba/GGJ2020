@@ -38,9 +38,14 @@ public class CallbackLibrary : MonoBehaviour
     //    PlayerController player = (PlayerController)FindObjectOfType(typeof(PlayerController));
     //    player.canDash = true;
     //}
+    public void enableJump()
+    {
+        Debug.Log("Jump enabled!");
+        pc.canJump = true;
+    }
     public void enableDash()
     {
-        Debug.Log("Dash enabled!");
+        Debug.Log("dash!");
         pc.canDash = true;
     }
 }
