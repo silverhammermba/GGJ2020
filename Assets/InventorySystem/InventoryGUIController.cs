@@ -62,15 +62,11 @@ public class InventoryGUIController : MonoBehaviour
         for (int g = 0; g < player.GetComponent<Inventory>().inventory.Count; g++)
         {
             Inventory tmpInv = player.GetComponent<Inventory>();
-            this.transform.GetChild(g).gameObject.GetComponent<InventorySlotController>().item = tmpInv.inventory[g];
-            this.transform.GetChild(g).gameObject.GetComponentInChildren<Image>().sprite = tmpInv.inventory[g].icon;
-            this.transform.GetChild(g).gameObject.GetComponentInChildren<Text>().text = tmpInv.inventory[g].stackSize.ToString();
+            this.transform.GetChild(g).GetComponent<InventorySlotController>().SetItem(tmpInv.inventory[g]);
         }
         for (int z = player.GetComponent<Inventory>().inventory.Count; z < player.GetComponent<Inventory>().maxSize; z++)
         {
-            this.transform.GetChild(z).gameObject.GetComponent<InventorySlotController>().item = null;
-            this.transform.GetChild(z).gameObject.GetComponentInChildren<Image>().sprite = null;
-            this.transform.GetChild(z).gameObject.GetComponentInChildren<Text>().text = null;
+            this.transform.GetChild(z).GetComponent<InventorySlotController>().ResetItem();
         }
     }
     void populateBar()
