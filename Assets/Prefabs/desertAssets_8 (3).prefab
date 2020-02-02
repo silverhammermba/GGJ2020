@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 24124994807803379}
   - component: {fileID: 24124994807803376}
+  - component: {fileID: 5350034339263330470}
+  - component: {fileID: 377003610708189062}
+  - component: {fileID: 8354881346408601740}
+  - component: {fileID: 3367274205879776717}
   m_Layer: 0
   m_Name: desertAssets_8 (3)
   m_TagString: Untagged
@@ -82,3 +86,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5350034339263330470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24124994807803377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: A pointy friend!
+--- !u!114 &377003610708189062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24124994807803377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: A pointy friend!
+--- !u!114 &8354881346408601740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24124994807803377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: A pointy friend!
+--- !u!114 &3367274205879776717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24124994807803377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7ce4ec9eb0bcd43876449c221730ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: A pointy friend!
