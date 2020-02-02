@@ -38,11 +38,13 @@ public class PlayerSpriteController : MonoBehaviour
 
     public void WalkAnimation()
     {
+        _anim.speed = 1.0f;
         _anim.Play(walkAnim);
     }
 
     public void IdleAnimation()
     {
+        _anim.speed = 1.0f;
         _anim.Play(idleAnim);
     }
     public void JumpAnimation(float duration)

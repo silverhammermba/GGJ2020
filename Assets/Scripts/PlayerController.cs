@@ -118,7 +118,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 StartJump();
-
             }
         }
 
@@ -257,7 +256,6 @@ public class PlayerController : MonoBehaviour
 
         dashStartTime = Time.time;
         nextForce = dashForce;
-
     }
 
     private void OnInteract()
