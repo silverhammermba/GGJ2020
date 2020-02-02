@@ -23,12 +23,13 @@ public class Inventory : MonoBehaviour
             return 99;
         }
     }
-    public void addItem(Item i)
+    public bool addItem(Item i)
     {
  
         if (inventory.Count == maxSize)
         {
             Debug.Log("Inventory is full");
+            return false;
         }
         else
         {
@@ -39,17 +40,20 @@ public class Inventory : MonoBehaviour
                     int ind = inventory.IndexOf(i);
                     inventory[ind].stackSize = inventory[ind].stackSize + 1;
                     igc.refresh();
+                    return true;
                 }
                 else
                 {
                     inventory.Add(i);
                     igc.refresh();
+                    return true;
                 }
             }
             else
             {
                 inventory.Add(i);
                 igc.refresh();
+                return true;
             }
         }
     }

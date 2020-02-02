@@ -10,14 +10,19 @@ public class Repairable : Interactable
     public Recipe recipe;
     public bool isFinished;
     public RecipeDatabase rd;
+    private GameManager gm;
     public int recipe_id;
     public string reward;
     public GameObject affectedobj;
     public CallbackLibrary cb;
     private Animator reward_anim;
     public bool hasAnim;
+    public AudioSource audioSource;
+    public List<AudioClip> repairSounds;
     public void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
+        gm = GameManager.Instance;
         if (this.hasAnim)
         {
             reward_anim = this.gameObject.GetComponent<Animator>();
@@ -25,7 +30,6 @@ public class Repairable : Interactable
         isFinished = false;
         cb = CallbackLibrary.Instance;
         rd = RecipeDatabase.Instance;
-        Debug.LogWarning(rd.getRecipeFromId(recipe_id).repair_anim_string.ToString());
         this.recipe = rd.getRecipeFromId(recipe_id);
         this.recipe.name = rd.getRecipeFromId(recipe_id).name;
         this.recipe.required_items = rd.getRecipeFromId(recipe_id).required_items;
@@ -78,7 +82,7 @@ public class Repairable : Interactable
         {
             Debug.LogWarning("Repair complete!");
             Debug.LogWarning("Invoking callback" + this.recipe.reward_func_string);
-            
+
             //affectedobj.SendMessage(reward);
             this.isFinished = true;
             if (this.hasAnim)
@@ -87,6 +91,10 @@ public class Repairable : Interactable
                 reward_anim.Play(rd.getRecipeFromId(recipe_id).repair_anim_string);
             }
             cb.Invoke(rd.getRecipeFromId(recipe_id).reward_func_string, 1f);
+            Debug.Log("First time completing the repair");
+            gm.numOfRepairedItems = gm.numOfRepairedItems + 1;
+            Debug.LogWarning(gm.numOfRepairedItems);
+            gm.winCondition();
             return true;
         }
         else
@@ -130,6 +138,7 @@ public class Repairable : Interactable
             {
                 um.DisableRepairText();
             }
+            audioSource.PlayOneShot(repairSounds[UnityEngine.Random.Range(0, repairSounds.Count)], 0.21f);
             return true;
         }
         else

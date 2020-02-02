@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private UIManager _ui;
     private PlayerController _player;
-
+    public int numOfRepairedItems = 0;
     public static GameManager instance;
     public static GameManager Instance
     {
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        numOfRepairedItems = 0;
         _ui = UIManager.Instance;
         _player = GameObject.FindObjectsOfType<PlayerController>()[0];        
     }
@@ -44,10 +45,16 @@ public class GameManager : MonoBehaviour
         this._player.transform.position = loc.position;
         this._ui.FadeFromBlack();
     }
-
+    public void winCondition()
+    {
+        if (numOfRepairedItems >= 4)
+        {
+            Debug.LogError("you win");
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 }

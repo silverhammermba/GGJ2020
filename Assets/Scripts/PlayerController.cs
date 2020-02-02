@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     public float moveForce;
+    public float timescale = 1f;
     public bool canMove;
     public float jumpDistance;
     public float jumpDuration; // time in seconds to complete the jump
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
     CircleCollider2D playerCollider;
     CircleCollider2D jumpTester;
     PlayerSpriteController sprite;
-
+    public bool isPaused;
     Vector2 move;
     float nextForce;
     bool startedTestingJump;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     float dashStartTime;
     GameObject currentlyInteractingObject;
     bool isContinouslyInteracting;
+    Describable describable;
 
     public float interactTime;
     public float maxInteractTime;
@@ -46,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        timescale = 1f;
+        isPaused = false;
         um = UIManager.Instance;
         canMove = true;
         canDash = false;
@@ -67,8 +71,9 @@ public class PlayerController : MonoBehaviour
         {
             canMove = true;
         }
-
-        if(isContinouslyInteracting) 
+        Debug.Log("iscont: " + isContinouslyInteracting.ToString());
+        Debug.Log("isInt: " + interacting);
+        if (isContinouslyInteracting) 
         {
             canMove = false;
             interactTime -= Time.deltaTime;
@@ -118,7 +123,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 StartJump();
-
             }
         }
 
@@ -149,7 +153,6 @@ public class PlayerController : MonoBehaviour
 
     void EndJump()
     {
-        sprite.JumpDone();
         transform.position = jumpEndPosition;
         rigidBody.simulated = true;
         jumping = false;
@@ -184,6 +187,7 @@ public class PlayerController : MonoBehaviour
                 return hit.gameObject.GetComponent<Interactable>();
             }
         }
+        interacting = false;
         return null;
     }
     public void disableTextboxIfFar()
@@ -193,6 +197,7 @@ public class PlayerController : MonoBehaviour
         {
             um.textBox.SetActive(false);
             um.isReading = false;
+            describable = null;
         }
     }
     public void attemptRead()
@@ -203,9 +208,14 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.gameObject.CompareTag("Describable"))
             {
-                um.isReading = true;
-                triggerLoc = hit.gameObject.transform.position;
-                um.setText(hit.gameObject.GetComponent<Describable>().description);
+                Describable newDescribable = hit.gameObject.GetComponent<Describable>();
+                if (newDescribable != describable)
+                {
+                    describable = newDescribable;
+                    um.isReading = true;
+                    triggerLoc = hit.gameObject.transform.position;
+                    um.setText(describable.StartDescription());
+                }
             }
         }
     }
@@ -221,7 +231,18 @@ public class PlayerController : MonoBehaviour
     {
         move = input.Get<Vector2>().normalized;
     }
-
+    private void OnStopGame() {
+        if (Time.timeScale == 0)
+        {
+            um.unPauseFade();
+            Time.timeScale = 1;
+        }
+        else
+        {
+            um.pauseFade();
+            Time.timeScale = 0;
+        }
+    }
     private void OnJump()
     {
         if (um.isToolTipEnabled() && currentlyInteractingObject.GetComponent<Repairable>().isDone())
@@ -258,7 +279,6 @@ public class PlayerController : MonoBehaviour
 
         dashStartTime = Time.time;
         nextForce = dashForce;
-
     }
 
     private void OnInteract()
@@ -282,6 +302,19 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (!isContinouslyInteracting && um.isReading && describable != null)
+        {
+            string nextText = describable.NextText();
+            if (nextText == null)
+            {
+                um.textBox.SetActive(false);
+                um.isReading = false;
+            }
+            else
+            {
+                um.setText(nextText);
+            }
+        }
     }
 
     private void OnUse()
