@@ -15,14 +15,8 @@ public class CameraMan : MonoBehaviour
         myCamera = GetComponent<Camera>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 screenPos = myCamera.WorldToScreenPoint(target.position);
 
@@ -48,6 +42,6 @@ public class CameraMan : MonoBehaviour
             deltaY = screenPos.y - (myCamera.pixelHeight - marginY);
         }
 
-        myCamera.transform.position += new Vector3(deltaX, deltaY, 0) * easeRate * Time.deltaTime;
+        myCamera.transform.position += new Vector3(deltaX, deltaY, 0) * easeRate * Time.fixedDeltaTime;
     }
 }

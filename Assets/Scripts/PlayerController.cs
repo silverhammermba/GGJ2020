@@ -98,23 +98,17 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-       
+
+        if (rigidBody.velocity.x > 0.0f) sprite.flipX(false);
+        if (rigidBody.velocity.x < 0.0f) sprite.flipX(true);
 
         rigidBody.AddForce(move * nextForce);
         nextForce = moveForce;
         if (rigidBody.velocity.magnitude > 0.3f)
         {
-            if(rigidBody.velocity.x < 0.0f)
-            {
-                sprite.gameObject.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-            }
-            else if(rigidBody.velocity.x > 0.3f)
-            {
-                sprite.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            }
             sprite.WalkAnimation();
         }
-        else 
+        else
         {
             sprite.IdleAnimation();
         }
