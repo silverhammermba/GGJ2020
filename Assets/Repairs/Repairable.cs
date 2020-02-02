@@ -8,6 +8,7 @@ public class Repairable : Interactable
     public List<int> currentState;
     public UIManager um;
     public Recipe recipe;
+    public bool isFinished;
     public RecipeDatabase rd;
     public int recipe_id;
     public string reward;
@@ -15,6 +16,7 @@ public class Repairable : Interactable
     public CallbackLibrary cb;
     public void Start()
     {
+        isFinished = false;
         cb = CallbackLibrary.Instance;
         rd = RecipeDatabase.Instance;
         Debug.Log(rd.getRecipeFromId(recipe_id).ToString());
@@ -68,6 +70,7 @@ public class Repairable : Interactable
             Debug.LogWarning("Repair complete!");
             Debug.LogWarning("Invoking callback" + this.recipe.reward_func_string);
             //affectedobj.SendMessage(reward);
+            this.isFinished = true;
             cb.Invoke(this.recipe.reward_func_string, 1f);
             return true;
         }
@@ -103,6 +106,15 @@ public class Repairable : Interactable
             currentState.Sort();
             currentState.Add(item_id);
             um.populateTooltip(this);
+            if(this.currentState.SequenceEqual(this.recipe.required_items)) 
+            {
+                this.isFinished = true;
+                um.EnableRepairText();
+            }
+            else 
+            {
+                um.DisableRepairText();
+            }
             return true;
         }
         else

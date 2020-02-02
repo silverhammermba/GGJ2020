@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     public bool textLoading = false;
     public string targetString;
 
+    public Text repairText;
+
     public static UIManager instance;
     public static UIManager Instance
     {
@@ -93,7 +95,14 @@ public class UIManager : MonoBehaviour
         foreach (int id in r.currentState)
         {
             rtp.gameObject.transform.GetChild(ii).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = _id.getItemFromId(id).icon;
+            rtp.gameObject.transform.GetChild(ii).gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             ii = ii + 1;
+        }
+        if (r.isFinished){
+            this.repairText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        }
+        else {
+             this.repairText.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
         }
     }
     public void clearTooltip(Repairable r)  
@@ -102,9 +111,18 @@ public class UIManager : MonoBehaviour
         int iz = 0;
         foreach (int id in r.recipe.required_items)
         {
-            rtp.gameObject.transform.GetChild(iz).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = slotEmpty;
+            rtp.gameObject.transform.GetChild(iz).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = _id.getItemFromId(id).icon;
+             rtp.gameObject.transform.GetChild(iz).gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
             iz = iz + 1;
         }
+    }
+    public void EnableRepairText() 
+    {
+        this.repairText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    }
+    public void DisableRepairText() 
+    {
+        this.repairText.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
     }
     public void setText(string s) 
     {
