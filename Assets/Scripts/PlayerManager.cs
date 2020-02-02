@@ -47,6 +47,10 @@ public class PlayerManager : MonoBehaviour
         if (isHome)
         {
             exposureLevel += Time.deltaTime * exposureClearMultiplier;
+            if(exposureLevel > maxExposureLevel)
+            {
+                exposureLevel = maxExposureLevel;
+            }
         }
         else 
         {
