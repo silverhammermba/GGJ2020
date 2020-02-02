@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     Vector3 jumpEndPosition;
     float dashStartTime;
     GameObject currentlyInteractingObject;
+    bool isContinouslyInteracting;
+
+    public float interactTime;
+    public float maxInteractTime;
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();    
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
         jumping = false;
         dashStartTime = Time.time - dashCooldown;
         nextForce = 0.0f;
+        interactTime = maxInteractTime;
     }
 
     // Update is called once per frame
@@ -59,6 +64,21 @@ public class PlayerController : MonoBehaviour
         if (!um.isToolTipEnabled())
         {
             canMove = true;
+        }
+
+        if(isContinouslyInteracting) 
+        {
+            canMove = false;
+            interactTime -= Time.deltaTime;
+            um.UpdateLootBar(this.currentlyInteractingObject.transform, interactTime / maxInteractTime);
+            if(interactTime <= 0.0f) 
+            {
+                this.currentlyInteractingObject.GetComponent<Interactable>().interact();
+                this.isContinouslyInteracting = false;
+                this.interactTime = this.maxInteractTime;
+                this.interacting = false;
+                um.CloseLootBar();
+            }
         }
 
         if (jumping)
@@ -149,7 +169,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public GameObject attemptInteract()
+    public Interactable getInteractable(bool isContinous)
     {
         interacting = true;
         Collider2D[] hits = Physics2D.OverlapCircleAll(this.gameObject.transform.position, radius);
@@ -158,12 +178,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log(hit.gameObject.name);
             if (hit.gameObject.CompareTag("Interactable"))
             {
-                Debug.Log("Interacted with an interactable");
-                hit.gameObject.GetComponent<Interactable>().interact();
-                return hit.gameObject;
+                return hit.gameObject.GetComponent<Interactable>();
             }
         }
-        return this.gameObject;
+        return null;
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -201,6 +219,16 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if(isContinouslyInteracting)
+        {
+            this.isContinouslyInteracting = false;
+            this.currentlyInteractingObject = null;
+            this.interactTime = this.maxInteractTime;
+            canMove = true;
+            interacting = false;
+            um.CloseLootBar();
+        }
+
         if (!canDash || jumping || startedTestingJump || interacting || dashStartTime + dashCooldown > Time.time) return;
 
         dashStartTime = Time.time;
@@ -212,8 +240,22 @@ public class PlayerController : MonoBehaviour
         if (jumping || startedTestingJump || interacting) return;
 
         canMove = false;
-        currentlyInteractingObject = attemptInteract();
-        interacting = false;
+        Interactable interactableObject = this.getInteractable(false);
+        if(interactableObject)
+        {
+            currentlyInteractingObject = interactableObject.gameObject;
+            if(interactableObject.isContinous) 
+            {
+                // start interacting with continous object
+                isContinouslyInteracting = true;
+            }
+            else 
+            {
+                currentlyInteractingObject.GetComponent<Interactable>().interact();
+                interacting = false;
+            }
+        }
+
     }
 
     private void OnUse()

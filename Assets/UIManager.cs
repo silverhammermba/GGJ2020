@@ -21,6 +21,11 @@ public class UIManager : MonoBehaviour
 
     public Text repairText;
 
+    public RectTransform lootBarTransform;
+    public Image lootBarFill;
+    private Camera _main;
+    public Animator fadeAnimator;
+
     public static UIManager instance;
     public static UIManager Instance
     {
@@ -42,6 +47,7 @@ public class UIManager : MonoBehaviour
     public void Start()
     {
         _id = ItemDatabase.Instance;
+        _main = Camera.main;
     }
     public void enabeTooltip(Repairable r)
     {
@@ -105,6 +111,29 @@ public class UIManager : MonoBehaviour
              this.repairText.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
         }
     }
+
+    public static Vector2 GetAnchoredPositionFromWorldPosition(Vector3 _worldPostion, Camera _camera,  Canvas _canvas)
+    {
+            //Vector2 myPositionOnScreen = _camera.WorldToScreenPoint(_worldPostion); // for transform.position?
+            Vector2 myPositionOnScreen = _camera.WorldToViewportPoint(_worldPostion); //for RectTransform.AnchoredPosition?
+            float scaleFactor = _canvas.scaleFactor;
+             return new Vector2(myPositionOnScreen.x / scaleFactor, myPositionOnScreen.y / scaleFactor);
+    }
+
+    public void UpdateLootBar(Transform t, float f) 
+    {
+        if(!lootBarTransform.gameObject.activeSelf) 
+        {
+            lootBarTransform.gameObject.SetActive(true);
+        }
+
+        lootBarFill.fillAmount = f;
+    }
+
+    public void CloseLootBar() 
+    {
+        lootBarTransform.gameObject.SetActive(false);
+    }
     public void clearTooltip(Repairable r)  
     {
         //nstanitateTooltip(r);
@@ -143,6 +172,23 @@ public class UIManager : MonoBehaviour
         textLoading = false;
         yield return new WaitForSeconds(5.0f);
         textBox.SetActive(false);
+    }
+
+    public void FadeToBlack() 
+    {
+        fadeAnimator.Play("FadeToBlack");
+    }
+
+    public void FadeFromBlack() 
+    {
+        fadeAnimator.Play("FadeFromBlack");
+    }
+
+    private IEnumerator fadeLoc() 
+    {
+        fadeAnimator.Play("FadeToBlack");
+        yield return new WaitForSeconds(2.0f);
+        fadeAnimator.Play("FadeFromBlack");
     }
 
 }
