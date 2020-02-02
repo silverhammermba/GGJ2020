@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
                 this.isContinouslyInteracting = false;
                 this.interactTime = this.maxInteractTime;
                 this.interacting = false;
+                this.currentlyInteractingObject = null;
                 um.CloseLootBar();
             }
         }
