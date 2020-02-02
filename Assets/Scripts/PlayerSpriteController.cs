@@ -6,14 +6,17 @@ public class PlayerSpriteController : MonoBehaviour
 {
     Animation jumpAnimation;
     SpriteRenderer sprite;
+    AudioSource audioSource;
     private Animator _anim;
     public string jumpAnim, walkAnim, idleAnim, dashAnim;
+    public List<AudioClip> stepSounds;
 
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         jumpAnimation = GetComponent<Animation>();
         _anim = this.GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -48,9 +51,13 @@ public class PlayerSpriteController : MonoBehaviour
         _anim.Play(jumpAnim);
     }
 
-    public void JumpDone()
+    public void StepSound()
     {
-        //jumpAnimation.Stop();
-        //jumpAnimation.Rewind();
+        audioSource.PlayOneShot(stepSounds[Random.Range(0, stepSounds.Count)], 0.21f);
+    }
+
+    public void JumpSound()
+    {
+        audioSource.PlayOneShot(stepSounds[Random.Range(0, stepSounds.Count)], 0.42f);
     }
 }

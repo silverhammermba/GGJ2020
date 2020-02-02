@@ -149,7 +149,6 @@ public class PlayerController : MonoBehaviour
 
     void EndJump()
     {
-        sprite.JumpDone();
         transform.position = jumpEndPosition;
         rigidBody.simulated = true;
         jumping = false;
