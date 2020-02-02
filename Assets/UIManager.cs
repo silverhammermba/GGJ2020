@@ -12,8 +12,9 @@ public class UIManager : MonoBehaviour
     public Sprite slotFilled;
     public Sprite slotEmpty;
     public ItemDatabase _id;
-
     public GameObject textBox;
+    public Vector2 triggerPos;
+    public bool isReading;
     public Text textValue;
 
     public bool textLoading = false;
@@ -41,6 +42,7 @@ public class UIManager : MonoBehaviour
     }
     public void Start()
     {
+        this.triggerPos = this.transform.position;
         _id = ItemDatabase.Instance;
     }
     public void enabeTooltip(Repairable r)
@@ -112,7 +114,7 @@ public class UIManager : MonoBehaviour
         foreach (int id in r.recipe.required_items)
         {
             rtp.gameObject.transform.GetChild(iz).gameObject.transform.GetChild(1).GetComponent<Image>().sprite = _id.getItemFromId(id).icon;
-             rtp.gameObject.transform.GetChild(iz).gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            rtp.gameObject.transform.GetChild(iz).gameObject.transform.GetChild(1).GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
             iz = iz + 1;
         }
     }
@@ -143,6 +145,7 @@ public class UIManager : MonoBehaviour
         textLoading = false;
         yield return new WaitForSeconds(5.0f);
         textBox.SetActive(false);
+        this.isReading = false;
     }
 
 }

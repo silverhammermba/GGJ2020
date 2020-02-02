@@ -19,13 +19,13 @@ public class PlayerSpriteController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void flipX(bool flip)
@@ -33,12 +33,12 @@ public class PlayerSpriteController : MonoBehaviour
         sprite.flipX = flip;
     }
 
-    public void WalkAnimation() 
+    public void WalkAnimation()
     {
         _anim.Play(walkAnim);
     }
 
-    public void IdleAnimation() 
+    public void IdleAnimation()
     {
         _anim.Play(idleAnim);
     }
