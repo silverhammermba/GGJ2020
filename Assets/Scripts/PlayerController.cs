@@ -67,8 +67,9 @@ public class PlayerController : MonoBehaviour
         {
             canMove = true;
         }
-
-        if(isContinouslyInteracting) 
+        Debug.Log("iscont: " + isContinouslyInteracting.ToString());
+        Debug.Log("isInt: " + interacting);
+        if (isContinouslyInteracting) 
         {
             canMove = false;
             interactTime -= Time.deltaTime;
@@ -184,6 +185,7 @@ public class PlayerController : MonoBehaviour
                 return hit.gameObject.GetComponent<Interactable>();
             }
         }
+        interacting = false;
         return null;
     }
     public void disableTextboxIfFar()
