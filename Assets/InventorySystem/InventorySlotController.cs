@@ -20,7 +20,6 @@ public class InventorySlotController : MonoBehaviour
         this.stackSizeText.text = this.stackSize.ToString();
         this.icon.sprite = item.icon;
     }
-
     public void ResetItem() 
     {
         this.item = null;
