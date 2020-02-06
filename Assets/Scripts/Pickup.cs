@@ -34,8 +34,8 @@ public class Pickup : Interactable
             PlayerController player = (PlayerController)FindObjectOfType(typeof(PlayerController));
             if (player.GetComponent<Inventory>().addItem(_id.getItemFromId(itemId)))
             {
-                audioSource.PlayOneShot(pickupSounds[Random.Range(0, pickupSounds.Count)], .47f);
-                Debug.LogWarning("Played audio");
+                audioSource.PlayOneShot(pickupSounds[Random.Range(0, pickupSounds.Count)]);
+				print("played audio");
                 Destroy(this.gameObject);
             }
         }

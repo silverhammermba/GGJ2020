@@ -10,16 +10,17 @@ public class StartMenu : MonoBehaviour
     void Update()
     {
         var gamepad = Gamepad.current;
-        if (gamepad == null)
-            return; // No gamepad connected.
 
-        if (gamepad.buttonSouth.wasPressedThisFrame)
-        {
-            StartGame();
-        }
+		if (gamepad != null)
+		{
+			if (gamepad.buttonSouth.wasPressedThisFrame)
+			{
+				StartGame();
+			}
+		}
     }
 
-    void StartGame()
+    public void StartGame()
     {
         SceneManager.LoadScene(1);
     }

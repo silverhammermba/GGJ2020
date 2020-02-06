@@ -18,6 +18,9 @@ public class UIManager : MonoBehaviour
     public Text textValue;
     public Image blackFade;
 
+	public GameObject deathTooltip;
+	public Text deathText;
+
     public bool textLoading = false;
     public string targetString;
 
@@ -27,7 +30,7 @@ public class UIManager : MonoBehaviour
     public Image lootBarFill;
     private Camera _main;
     public Animator fadeAnimator;
-    public Text pauseText;
+    public GameObject pauseText;
     public static UIManager instance;
     public static UIManager Instance
     {
@@ -49,12 +52,12 @@ public class UIManager : MonoBehaviour
     public void pauseFade()
     {
         blackFade.color = new Color(0.0f, 0.0f, 0.0f, .5f);
-        pauseText.gameObject.SetActive(true);
+        pauseText.SetActive(true);
     }
     public void unPauseFade()
     {
         blackFade.color = new Color(0.0f, 0.0f, 0.0f, 0f);
-        pauseText.gameObject.SetActive(false);
+        pauseText.SetActive(false);
     }
     public void Start()
     {
@@ -218,5 +221,34 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         fadeAnimator.Play("FadeFromBlack");
     }
+
+	public void holdOnBlack()
+	{
+		fadeAnimator.Play("FadeIdleBlack");
+	}
+	public void showDeathMenu()
+	{
+		this.deathTooltip.SetActive(true);
+	}
+
+	public void setDeathText(string s)
+	{
+		deathText.text = "";
+		textLoading = true;
+		StopAllCoroutines();
+		StartCoroutine(displayDeathText(s));
+	}
+	IEnumerator displayDeathText(string s)
+	{
+		for (int i = 0; i < s.Length + 1; i++)
+		{
+			deathText.text = s.Substring(0, i);
+			yield return new WaitForSeconds(0.03f);
+		}
+		textLoading = false;
+		yield return new WaitForSeconds(5.0f);
+		textBox.SetActive(false);
+		this.isReading = false;
+	}
 
 }

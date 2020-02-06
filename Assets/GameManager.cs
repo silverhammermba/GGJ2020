@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private UIManager _ui;
     private PlayerController _player;
     public int numOfRepairedItems = 0;
+	public bool isDead;
     public static GameManager instance;
     public static GameManager Instance
     {

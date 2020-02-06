@@ -41,9 +41,14 @@ public class CallbackLibrary : MonoBehaviour
     public void lowerExposure()
     {
         Debug.Log("Exposure rate lowered!");
-        pc.gameObject.GetComponent<PlayerManager>().exposureLevelMultiplier = pc.gameObject.GetComponent<PlayerManager>().exposureLevelMultiplier * 0.9f;
+        pc.gameObject.GetComponent<PlayerManager>().exposureLevelMultiplier *= 0.5f;
     }
-    public void enableJump()
+	public void increaseExposure()
+	{
+		Debug.Log("Exposure rate lowered!");
+		pc.gameObject.GetComponent<PlayerManager>().exposureClearMultiplier *= 2.0f;
+	}
+	public void enableJump()
     {
         Debug.Log("Jump enabled!");
         pc.canJump = true;

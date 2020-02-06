@@ -49,22 +49,22 @@ MonoBehaviour:
     required_items: 010000000100000006000000
     reward_func_string: lowerExposure
     repair_anim_string: vent_fixed_idle
-    richText_description: <color=blue><i> -10% Exposure Gain Rate </i> </color>
+    richText_description: <i> Increase exposure recharge rate by</i> <color=#6DDCEF><i>50%</i></color>
   - id: 2
     name: Fabricator
     required_items: 0200000006000000
     reward_func_string: enableJump
     repair_anim_string: fab_fixed_idle
-    richText_description: <color=green><i> Enable Jump </i></color>
+    richText_description: <i> Enables</i> <color=#6DDCEF><i>Jump </i></color>
   - id: 3
     name: Navigator
     required_items: 030000000700000007000000
     reward_func_string: enableDash
     repair_anim_string: nav_fixed_dile
-    richText_description: <color=green><i> Enable Blue </i></color>
+    richText_description: <i> Enables</i> <color=#6DDCEF><i>Dash </i></color>
   - id: 4
     name: Panel
     required_items: 040000000200000008000000
     reward_func_string: enableEnd
     repair_anim_string: wiring_fixed_idle2
-    richText_description: <color=blue><i> +10% Exposure Recovery Rate </i> </color>
+    richText_description: <i> Increase exposure recharge rate by</i> <color=#6DDCEF><i>50%</i></color>
